@@ -1,0 +1,93 @@
+/*
+
+Add styles or override variables from the theme here.
+
+*/
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_Th.ttf);
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_ThIt.ttf);
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_Lt.ttf);
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_LtIt.ttf);
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_Rg.ttf);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_RgIt.ttf);
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_Bd.ttf);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Amazon Ember;
+  src: url(/fonts/Amazon_Ember_BdIt.ttf);
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+$primary: #232f3e;
+$secondary: #ff9900;
+
+$link-color: #0073bb;
+
+$enable-gradients: false;
+$enable-rounded: false;
+$enable-shadows: false;
+
+$td-enable-google-fonts: false;
+$font-family-base: Amazon Ember, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$font-weight-body-text: 300 !default;
+$headings-font-weight: 400 !default;
+
+$td-sidebar-bg-color: #fff;
+$td-sidebar-border-color: none;
+
+.documentation {
+    p, pre, ul, ol {
+        margin: 1.25rem;
+    }
+}

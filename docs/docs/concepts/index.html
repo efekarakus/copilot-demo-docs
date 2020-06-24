@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.72.0" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/concepts/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Concepts | AWS Copilot CLI</title><meta property="og:title" content="Concepts" />
+<meta property="og:description" content="AWS Copilot CLI developer guide and documentation." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/concepts/" />
+<meta property="og:updated_time" content="2017-01-05T00:00:00+00:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="Concepts">
+<meta itemprop="description" content="AWS Copilot CLI developer guide and documentation."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Concepts"/>
+<meta name="twitter:description" content="AWS Copilot CLI developer guide and documentation."/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.62cd266fce2c760f71317bf0fdd32a840821a180a2f06e94a8191343ce5b2262.css" as="style">
+<link href="/scss/main.min.62cd266fce2c760f71317bf0fdd32a840821a180a2f06e94a8191343ce5b2262.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body class="td-section">
+<header>
+    
+<nav class="js-navbar-scroll navbar navbar-expand-lg  flex-column flex-md-row td-navbar" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="navbar-brand" href="/">
+                    <span class="navbar-logo"></span><span class="site-title">$ copilot</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="main-navbar collapse navbar-collapse justify-content-between" id="main_navbar">
+                    <ul class="navbar-nav mt-2 mt-lg-0 m-auto">
+                        
+                        
+                            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+                            </li>
+                        
+                            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link" href="/community/" ><span>Community</span></a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="navbar-nav d-none d-lg-block">
+</div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+    <div class="container">
+        <div class="td-main">
+            <div class="row flex-xl-nowrap">
+                <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+                    
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsconcepts">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptsapplications" href="/docs/concepts/applications/">Applications</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptsenvironments" href="/docs/concepts/environments/">Environments</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptsservices" href="/docs/concepts/services/">Services</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptspipelines" href="/docs/concepts/pipelines/">Pipelines</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+                </div>
+                <main class="col-12 col-md-9 col-xl-10 pl-md-5 documentation" role="main">
+                    
+  
+
+                    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/concepts/">Concepts</a>
+</li>
+
+	</ol>
+</nav	>
+
+                    
+<div class="td-content">
+	<h1>Concepts</h1>
+        
+	
+	<p>Copilot makes it super easy to set up and deploy your containers on AWS - but getting started is only the first step of the journey. What happens when you want to have one copy of your service running only for testing and another copy serving production traffic? What happens when you want to add another service? How do you manage deploying to all of these services? Copilot wants to help you with all of these things so let&rsquo;s jump into some of Copilot&rsquo;s core concepts to understand how they can help.</p>
+<h4 id="services">Services</h4>
+<p>A service is your code and all of the supporting infrastructure needed to get it up and running on AWS. When you first get started setting up a service, Copilot will ask you what <em>type</em> of service you want to create. The <em>type</em> of service determines the infrastructure that&rsquo;ll be created to support your code. If you want your code to serve traffic from the internet, for example, Copilot can set up an Application Load Balancer, an Amazon ECS Service running on AWS Fargate.</p>
+<p>Once you&rsquo;ve told Copilot what type of service you&rsquo;re building, Copilot will take care of building your code&rsquo;s Dockerfile and storing the images securely an Amazon ECR. Copilot will also create a simple file called the <em>manifest</em> which contains all the knobs and toggles for your service. This includes things like how much memory and CPU should be allocated to each copy of your service, how many copies of your service you want running, and more.</p>
+<p>For more details on services. manifests and more check out the <a href="/docs/concepts/services">services concept</a> section.</p>
+<h4 id="environments">Environments</h4>
+<p>Rumor has it, there are people out there that can write perfect code on the first go without any bugs. While we tip our hats to those folks, we believe it&rsquo;s important to be able to test new code on a non-customer facing version of your service before promoting to production. In Copilot we do this by using <em>environments</em>. Each environment can have its own version of a service running allowing you to create a &ldquo;test&rdquo; and &ldquo;production&rdquo; environment. You can deploy your service to the test environment, make sure everything looks good, then deploy to your production environment. Since each environment is independent, if you deploy a bug to your test environment, customers using a service deployed to your production environment will be fine.</p>
+<p>Until now we&rsquo;ve been talking about just one service, but what happens when you want to add another service? Perhaps you want to add a backend service to compliment your frontend service. Each environment contains a set of resources shared between all the deployed services - these resources include the network (VPC, Subnets, Security Groups, etc), the ECS Cluster, and the load balancer. If you deploy both your frontend and backend service to your test environment, both services will share the same network and cluster.</p>
+<p>For more details on environments check out the <a href="/docs/concepts/enviroments">environments concept</a> section.</p>
+<h4 id="applications">Applications</h4>
+<p>An Application is a collection of services and environments. When you get started with Copilot, the first thing you&rsquo;ll be asked to do is choose an application name. This can be a high level description of the product you&rsquo;re trying to build. An example might be an application named <em>&ldquo;chat&rdquo;</em> which has two services <em>&ldquo;api&rdquo;</em> and <em>&ldquo;backend&rdquo;</em>. These two services could then be deployed to a <em>&ldquo;test&rdquo;</em> and <em>&ldquo;production&rdquo;</em> environment.</p>
+<h4 id="pipelines">Pipelines</h4>
+<p>Now that you&rsquo;ve got an application with a few services deployed to a couple of environments, staying on top of those deployments can become tricky. Copilot can help by setting up a release pipeline that deploys your service whenever you push to your git repositry. When a push is detected, your pipeline will build your service, push the image to ECR, and deploy to your environments.</p>
+<p>A common pattern is to set up a pipeline for a particular service that deploys to a test environment, runs automated testing, then deploys to the production environment.</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/concepts/applications/">Applications</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/concepts/environments/">Environments</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/concepts/services/">Services</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/concepts/pipelines/">Pipelines</a>
+                    </h5>
+                    <p></p>
+                </div>
+            
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 5, 2017
+</div>
+</div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+    
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/aws/amazon-ecs-cli-v2">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2020 Amazon Web Services, Inc. or its affiliates. All Rights Reserved</small>
+        <small class="ml-1"><a href="https://aws.amazon.com/privacy" target="_blank">Privacy Policy</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

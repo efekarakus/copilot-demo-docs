@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.72.0" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Environments | AWS Copilot CLI</title><meta property="og:title" content="Environments" />
+<meta property="og:description" content="When you first run copilot init you&rsquo;re asked if you want to create a test environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your test environment, your service will use the test environment&rsquo;s network and resources." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/concepts/environments/" />
+<meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-01-05T00:00:00+00:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="Environments">
+<meta itemprop="description" content="When you first run copilot init you&rsquo;re asked if you want to create a test environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your test environment, your service will use the test environment&rsquo;s network and resources.">
+<meta itemprop="datePublished" content="2017-01-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-01-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="792">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Environments"/>
+<meta name="twitter:description" content="When you first run copilot init you&rsquo;re asked if you want to create a test environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your test environment, your service will use the test environment&rsquo;s network and resources."/>
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.62cd266fce2c760f71317bf0fdd32a840821a180a2f06e94a8191343ce5b2262.css" as="style">
+<link href="/scss/main.min.62cd266fce2c760f71317bf0fdd32a840821a180a2f06e94a8191343ce5b2262.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body class="td-page">
+<header>
+    
+<nav class="js-navbar-scroll navbar navbar-expand-lg  flex-column flex-md-row td-navbar" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="navbar-brand" href="/">
+                    <span class="navbar-logo"></span><span class="site-title">$ copilot</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="main-navbar collapse navbar-collapse justify-content-between" id="main_navbar">
+                    <ul class="navbar-nav mt-2 mt-lg-0 m-auto">
+                        
+                        
+                            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link active" href="/docs/" ><span class="active">Documentation</span></a>
+                            </li>
+                        
+                            <li class="nav-item mr-4 mb-2 mb-lg-0">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link" href="/community/" ><span>Community</span></a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="navbar-nav d-none d-lg-block">
+</div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+    <div class="container">
+        <div class="td-main">
+            <div class="row flex-xl-nowrap">
+                <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+                    
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsconcepts">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptsapplications" href="/docs/concepts/applications/">Applications</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsconceptsenvironments" href="/docs/concepts/environments/">Environments</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptsservices" href="/docs/concepts/services/">Services</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsconceptspipelines" href="/docs/concepts/pipelines/">Pipelines</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+                </div>
+                <main class="col-12 col-md-9 col-xl-10 pl-md-5 documentation" role="main">
+                    
+  
+
+                    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/concepts/">Concepts</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/concepts/environments/">Environments</a>
+</li>
+
+	</ol>
+</nav	>
+
+                    
+<div class="td-content">
+	<h1>Environments</h1>
+    
+	       
+	<p>When you first run <code>copilot init</code> you&rsquo;re asked if you want to create a <em>test</em> environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your <em>test</em> environment, your service will use the <em>test</em> environment&rsquo;s network and resources. Your application can have multiple environments, and each will have its own networking and shared resources infrastructure.</p>
+<p>While Copilot creates a test environment for you when you get started, it&rsquo;s common to create a new, seperate environment for production. This production environment will be completly independent from the test environment, with its own networking stack and its own copy of services. By having both a test environment and a production environment, you can deploy changes to your test environment, validate them, then promote them to the production environment.</p>
+<p>In the diagram below we have an application called <em>MyApp</em> with two services, <em>API</em> and <em>Backend</em>. Those two services are deployed to the two environments, <em>test</em> and <em>prod</em>. You can see that in the <em>test</em> environment, both services are running only one container while the <em>prod</em> services have more containers running. Services can use different configurations depending on the environment they&rsquo;re deployed in. For more check out the <a href="developing/using-environment-variables">using environment variables</a> guide.</p>
+<p><img src="/docs/concepts/env-concept.png" alt=""></p>
+<h2 id="creating-an-environment">Creating an Environment</h2>
+<p>To create a new environment in your app, you can run <code>copilot env init</code> from within your workspace. Copilot will ask you what you want to name this environment and what profile you&rsquo;d like to use to bootstrap the environment. These profiles are AWS <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a> which are associated with a particular account and region. When you select one of these profiles, your environment will be created in whichever account and region that profile is associated with.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">copilot env init
+</code></pre></div><p>After you run <code>copilot env init</code> you can watch as Copilot sets up all the environment resources, which can take a few minutes. Once all those resources are created, the environment will be linked back to the application account. This allows actors in the application account to manage the environment even without access to the environment account. This linking process also creates and configures new regional ECR repositories, if necessary.</p>
+<h3 id="deploying-a-service">Deploying a Service</h3>
+<p>When you first create a new environment, no services are deployed to it. To deploy a service run <code>copilot deploy</code> from that service&rsquo;s directory, and you&rsquo;ll be prompted to select which environment to deploy to.</p>
+<h2 id="environment-infrastructure">Environment Infrastructure</h2>
+<p><img src="/docs/concepts/env-infrastructure.png" alt=""></p>
+<h3 id="vpc-and-networking">VPC and Networking</h3>
+<p>Each environment gets its own multi-AZ VPC. Your VPC is the network boundary of your environment, allowing the traffic you expect in and out, and blocking the rest. The VPCs Copilot creates are spread across two availability zones to help balance availability and cost - with each AZ getting a public and private subnet.</p>
+<p>Your services are launched in the public subnets but can only be reached through your load balancer.</p>
+<h3 id="load-balancers-and-dns">Load Balancers and DNS</h3>
+<p>If you set up any service using one of the Load Balanced Service types, Copilot will set up an Application Load Balancer. All Load Balanced Web Services within an environment will share a load balancer by creating app specific listeners on it. Your load balancer is whitelisted to communicate with services in your VPC.</p>
+<p>Optionally, when you set up an application, you can provide a domain name that you own and is registered in Route 53. If you provide Copilot with a domain name, each time you spin up an environment, we&rsquo;ll create a subdomain environment-name.app-name.your-domain.com, provision an ACM cert, and bind it to your Application Load Balancer so it can use HTTPS.</p>
+<h2 id="digging-into-your-environment">Digging into your Environment</h2>
+<p>Now that we&rsquo;ve spun up an environment, we can check on it using Copilot. Below are a few common ways to check in on your environment.</p>
+<h3 id="what-environments-are-part-of-my-app">What environments are part of my app?</h3>
+<p>To see all the environments in your application you can run <code>copilot env ls</code>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ copilot env ls
+<span style="color:#204a87">test</span>
+production
+</code></pre></div><h3 id="whats-in-your-environment">What&rsquo;s in your environment?</h3>
+<p>Running <code>copilot env show</code> will show you a summary of your environment. Here&rsquo;s an example of the output you might see for our test environment. This output includes the the account and region the environment is in, the services deployed to that environment and the tag that all resources created in this environment will have. You can also provide an optional <code>--resources</code> flag to see all AWS resources associated with this environment.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ copilot env show --name <span style="color:#204a87">test</span>
+About
+
+  Name              <span style="color:#204a87">test</span>
+  Production        <span style="color:#204a87">false</span>
+  Region            us-west-2
+  Account ID        <span style="color:#0000cf;font-weight:bold">693652174720</span>
+
+Services
+
+  Name              Type
+  ----              ----
+  api               Load Balanced Web Service
+  backend           Backend Service
+
+
+Tags
+
+  Key                  Value
+  ---                  -----
+  copilot-application  my-app
+  copilot-environment  <span style="color:#204a87">test</span>
+</code></pre></div>
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified January 5, 2017
+</div>
+</div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+    
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/aws/amazon-ecs-cli-v2">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2020 Amazon Web Services, Inc. or its affiliates. All Rights Reserved</small>
+        <small class="ml-1"><a href="https://aws.amazon.com/privacy" target="_blank">Privacy Policy</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
