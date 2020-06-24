@@ -1,5 +1,5 @@
 publishDir = "docs"
-baseURL = "/"
+baseURL = "efekarakus.github.io/copilot-demo-docs/"
 title = "AWS Copilot CLI"
 
 enableRobotsTXT = true

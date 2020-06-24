@@ -1,12 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Copilot CLI – Concepts</title>
-    <link>/docs/concepts/</link>
+    <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/</link>
     <description>Recent content in Concepts on AWS Copilot CLI</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	  <atom:link href="/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="efekarakus.github.io/copilot-demo-docs/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +15,10 @@
     
     <item>
       <title>Docs: Applications</title>
-      <link>/docs/concepts/applications/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/applications/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/applications/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/applications/</guid>
       <description>
         
         
@@ -27,7 +26,7 @@
 &lt;p&gt;Let&amp;rsquo;s walk through an example. We want to build a voting app which needs to collect votes and aggregate the results.&lt;/p&gt;
 &lt;p&gt;To set up our vote app with two services, we can run &lt;code&gt;copilot init&lt;/code&gt; twice. The first time we run &lt;code&gt;init&lt;/code&gt;, we&amp;rsquo;ll be asked what we should call the application this service will belong to. Since we&amp;rsquo;re trying to build a voting system, we can call our application &amp;ldquo;vote&amp;rdquo; and our first service &amp;ldquo;collector&amp;rdquo;. The next time we run &lt;code&gt;init&lt;/code&gt;, we&amp;rsquo;ll be asked if we want to add our new service to the existing “vote” app, and we’ll name the new service &amp;ldquo;aggregator&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Your application configuration (which services and environments belong to it) is stored in your AWS account, so any other users in your account will be able to develop on the “vote&amp;rdquo; app as well. This means that you can have a teammate work on one service while you develop the other.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/concepts/app-concept.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/app-concept.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;creating-an-app&#34;&gt;Creating an App&lt;/h2&gt;
 &lt;p&gt;To set up an application, you can just run &lt;code&gt;copilot init&lt;/code&gt;. You&amp;rsquo;ll be asked if you want to set up an app or choose an use app.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;copilot init
@@ -45,7 +44,7 @@
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --resource-tags &lt;span style=&#34;color:#000&#34;&gt;department&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyDept,team&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyTeam
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;app-infrastructure&#34;&gt;App Infrastructure&lt;/h2&gt;
 &lt;p&gt;While the bulk of the infrastructure Copilot provisions is specific to an environment and service, there are some application-wide resources, as well.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/concepts/app-infra.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/app-infra.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;ecr-repositories&#34;&gt;ECR Repositories&lt;/h3&gt;
 &lt;p&gt;ECR Repositories are regional resources which store your service images. Each service has its own ECR Repository per region in your app.&lt;/p&gt;
 &lt;p&gt;In the above diagram, the app has several environments spread across three regions. Each of those regions has its own ECR repository for every service in your app. In this case, there are three services.&lt;/p&gt;
@@ -85,17 +84,17 @@ Services
     
     <item>
       <title>Docs: Environments</title>
-      <link>/docs/concepts/environments/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/environments/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/environments/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/environments/</guid>
       <description>
         
         
         &lt;p&gt;When you first run &lt;code&gt;copilot init&lt;/code&gt; you&amp;rsquo;re asked if you want to create a &lt;em&gt;test&lt;/em&gt; environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your &lt;em&gt;test&lt;/em&gt; environment, your service will use the &lt;em&gt;test&lt;/em&gt; environment&amp;rsquo;s network and resources. Your application can have multiple environments, and each will have its own networking and shared resources infrastructure.&lt;/p&gt;
 &lt;p&gt;While Copilot creates a test environment for you when you get started, it&amp;rsquo;s common to create a new, seperate environment for production. This production environment will be completly independent from the test environment, with its own networking stack and its own copy of services. By having both a test environment and a production environment, you can deploy changes to your test environment, validate them, then promote them to the production environment.&lt;/p&gt;
 &lt;p&gt;In the diagram below we have an application called &lt;em&gt;MyApp&lt;/em&gt; with two services, &lt;em&gt;API&lt;/em&gt; and &lt;em&gt;Backend&lt;/em&gt;. Those two services are deployed to the two environments, &lt;em&gt;test&lt;/em&gt; and &lt;em&gt;prod&lt;/em&gt;. You can see that in the &lt;em&gt;test&lt;/em&gt; environment, both services are running only one container while the &lt;em&gt;prod&lt;/em&gt; services have more containers running. Services can use different configurations depending on the environment they&amp;rsquo;re deployed in. For more check out the &lt;a href=&#34;developing/using-environment-variables&#34;&gt;using environment variables&lt;/a&gt; guide.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/concepts/env-concept.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/env-concept.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;creating-an-environment&#34;&gt;Creating an Environment&lt;/h2&gt;
 &lt;p&gt;To create a new environment in your app, you can run &lt;code&gt;copilot env init&lt;/code&gt; from within your workspace. Copilot will ask you what you want to name this environment and what profile you&amp;rsquo;d like to use to bootstrap the environment. These profiles are AWS &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html&#34;&gt;named profiles&lt;/a&gt; which are associated with a particular account and region. When you select one of these profiles, your environment will be created in whichever account and region that profile is associated with.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;copilot env init
@@ -103,7 +102,7 @@ Services
 &lt;h3 id=&#34;deploying-a-service&#34;&gt;Deploying a Service&lt;/h3&gt;
 &lt;p&gt;When you first create a new environment, no services are deployed to it. To deploy a service run &lt;code&gt;copilot deploy&lt;/code&gt; from that service&amp;rsquo;s directory, and you&amp;rsquo;ll be prompted to select which environment to deploy to.&lt;/p&gt;
 &lt;h2 id=&#34;environment-infrastructure&#34;&gt;Environment Infrastructure&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/concepts/env-infrastructure.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/env-infrastructure.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vpc-and-networking&#34;&gt;VPC and Networking&lt;/h3&gt;
 &lt;p&gt;Each environment gets its own multi-AZ VPC. Your VPC is the network boundary of your environment, allowing the traffic you expect in and out, and blocking the rest. The VPCs Copilot creates are spread across two availability zones to help balance availability and cost - with each AZ getting a public and private subnet.&lt;/p&gt;
 &lt;p&gt;Your services are launched in the public subnets but can only be reached through your load balancer.&lt;/p&gt;
@@ -147,10 +146,10 @@ Tags
     
     <item>
       <title>Docs: Services</title>
-      <link>/docs/concepts/services/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/services/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/services/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/services/</guid>
       <description>
         
         
@@ -304,10 +303,10 @@ Alarms
     
     <item>
       <title>Docs: Pipelines</title>
-      <link>/docs/concepts/pipelines/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/pipelines/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/</guid>
       <description>
         
         
