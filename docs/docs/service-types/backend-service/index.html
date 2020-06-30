@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="aws.github.io/copilot-cli/docs/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,15 +20,24 @@
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-192x192.png" sizes="192x192">
 
-<title>Documentation | AWS Copilot CLI</title><meta property="og:title" content="Documentation" />
-<meta property="og:description" content="AWS Copilot CLI developer guide and documentation." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="aws.github.io/copilot-cli/docs/" />
-<meta property="og:site_name" content="AWS Copilot CLI" />
-<meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="AWS Copilot CLI developer guide and documentation."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
-<meta name="twitter:description" content="AWS Copilot CLI developer guide and documentation."/>
+<title>Backend Service | AWS Copilot CLI</title><meta property="og:title" content="Backend Service" />
+<meta property="og:description" content="A service that&rsquo;s not reachable from the internet, but can be reached with service discovery from your other services.
+Why Privacy. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them. You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="aws.github.io/copilot-cli/docs/service-types/backend-service/" />
+<meta property="article:modified_time" content="2020-06-30T16:35:33-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="Backend Service">
+<meta itemprop="description" content="A service that&rsquo;s not reachable from the internet, but can be reached with service discovery from your other services.
+Why Privacy. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them. You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.">
+<meta itemprop="dateModified" content="2020-06-30T16:35:33-07:00" />
+<meta itemprop="wordCount" content="110">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Backend Service"/>
+<meta name="twitter:description" content="A service that&rsquo;s not reachable from the internet, but can be reached with service discovery from your other services.
+Why Privacy. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them. You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services."/>
 
 
 
@@ -46,7 +54,7 @@
 
 
 </head>
-<body class="td-section">
+<body class="td-page">
 <header>
     
 <nav class="navbar flex-column flex-md-row td-navbar" >
@@ -106,7 +114,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocs">
@@ -123,10 +131,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Installation</a>
+            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsinstallation">
+            <li class="collapse " id="awsgithubiocopilot-clidocsinstallation">
                 
                 
                 
@@ -146,10 +154,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsgetting-started">
+            <li class="collapse " id="awsgithubiocopilot-clidocsgetting-started">
                 
                 
                 
@@ -169,10 +177,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Concepts</a>
+            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsconcepts">
+            <li class="collapse " id="awsgithubiocopilot-clidocsconcepts">
                 
                 
                 
@@ -216,7 +224,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Service types</a>
+            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service types</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocsservice-types">
@@ -232,7 +240,7 @@
                     
                         
                         
-                        <a class="td-sidebar-link td-sidebar-link__page " id="m-awsgithubiocopilot-clidocsservice-typesbackend-service" href="aws.github.io/copilot-cli/docs/service-types/backend-service/">Backend Service</a>
+                        <a class="td-sidebar-link td-sidebar-link__page  active" id="m-awsgithubiocopilot-clidocsservice-typesbackend-service" href="aws.github.io/copilot-cli/docs/service-types/backend-service/">Backend Service</a>
                     
                 
             </li>
@@ -263,8 +271,28 @@
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+
+
+
+<li class="breadcrumb-item" >
 	<a href="aws.github.io/copilot-cli/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="aws.github.io/copilot-cli/docs/service-types/">Service types</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="aws.github.io/copilot-cli/docs/service-types/backend-service/">Backend Service</a>
 </li>
 
 	</ol>
@@ -272,94 +300,25 @@
 
                     
 <div class="td-content">
-	<h1>Documentation</h1>
-        
-	
-	<p>Welcome to the AWS Copilot CLI developer guide and documentation. Throughout these docs we&rsquo;ll help you use Copilot to
-deploy your container to AWS, grow and release them to production and operate them.</p>
-<h4 id="what-is-copilot">What is Copilot?</h4>
-<p>Copilot is a CLI from Amazon Web Services which helps you build, release and operate your containerized applications on AWS and Amazon ECS.</p>
-<p>With Copilot, you focus on the architectures of your application, rather than the infrastructure which supports it.
-Want to deploy a public service? We will provision all the resources for a well architected, secure and load balanced web service on ECS.</p>
-<p>Want to add more services to your application? No problem. Beyond helping you spin up new services,
-Copilot also helps you model and operate all of your applicaiton&rsquo;s services together from the comfort of your terminal.</p>
-<h4 id="key-features-">Key Features 🔑</h4>
-<p>Copilot is full of features that help make developing, operating and releasing container apps on AWS delightful, including:</p>
-<ul>
-<li>Multi service applications with built in service discovery</li>
-<li>Model all of your test, staging and production environments in one place</li>
-<li>Continuous delivery pipelines for your services with one command</li>
-<li>Operations built in with loging, alarming and status built in</li>
-<li>Simple yet powerful configuration for your services</li>
-<li>Custom domain name and TLS support</li>
-<li>And much more &hellip;</li>
-</ul>
-
-        <div class="section-index">
+	<h1>Backend Service</h1>
     
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/installation/">Installation</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/getting-started/">Getting started</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/concepts/">Concepts</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/service-types/">Service types</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-        
-    
-</div>
+	       
+	<p>A service that&rsquo;s not reachable from the internet, but can be reached with <a href="/docs/develop/service-discovery/">service discovery</a> from your other services.</p>
+<h4 id="why">Why</h4>
+<p><strong>Privacy</strong>. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them.
+You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.</p>
+<p><strong>Encapsulation</strong>. If you need to migrate a service to a new major version, then a backend service will allow you to seamless migrate traffic from your &ldquo;frontend&rdquo; service to the new version.</p>
+<h4 id="common-use-cases">Common use-cases</h4>
+<p><strong>APIs</strong>. Any internal API service.</p>
+<h4 id="architecture">Architecture</h4>
+<img src="https://user-images.githubusercontent.com/879348/78615432-5f3ac980-7826-11ea-9c03-ff0e6866152c.png" class="img-fluid">
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/f975c8076ef7d1451e2b6188085ea86d8438ef29">docs: add site/ dir with splashpage for the copilot website (f975c80)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/a38ef8a59727026d5c4a089725507f06a72eeb67">docs: update the documentation page style (a38ef8a)</a>
 </div>
 </div>
+
 
                 </main>
             </div>

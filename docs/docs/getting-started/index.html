@@ -7,7 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="aws.github.io/copilot-cli/docs/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="aws.github.io/copilot-cli/docs/getting-started/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,14 +21,14 @@
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-192x192.png" sizes="192x192">
 
-<title>Documentation | AWS Copilot CLI</title><meta property="og:title" content="Documentation" />
+<title>Getting started | AWS Copilot CLI</title><meta property="og:title" content="Getting started" />
 <meta property="og:description" content="AWS Copilot CLI developer guide and documentation." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="aws.github.io/copilot-cli/docs/" />
+<meta property="og:url" content="aws.github.io/copilot-cli/docs/getting-started/" />
 <meta property="og:site_name" content="AWS Copilot CLI" />
-<meta itemprop="name" content="Documentation">
+<meta itemprop="name" content="Getting started">
 <meta itemprop="description" content="AWS Copilot CLI developer guide and documentation."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
+<meta name="twitter:title" content="Getting started"/>
 <meta name="twitter:description" content="AWS Copilot CLI developer guide and documentation."/>
 
 
@@ -106,7 +106,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocs">
@@ -123,10 +123,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Installation</a>
+            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsinstallation">
+            <li class="collapse " id="awsgithubiocopilot-clidocsinstallation">
                 
                 
                 
@@ -146,7 +146,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Getting started</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocsgetting-started">
@@ -169,10 +169,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Concepts</a>
+            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsconcepts">
+            <li class="collapse " id="awsgithubiocopilot-clidocsconcepts">
                 
                 
                 
@@ -216,10 +216,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Service types</a>
+            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service types</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsservice-types">
+            <li class="collapse " id="awsgithubiocopilot-clidocsservice-types">
                 
                 
                 
@@ -263,8 +263,18 @@
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="aws.github.io/copilot-cli/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="aws.github.io/copilot-cli/docs/getting-started/">Getting started</a>
 </li>
 
 	</ol>
@@ -272,28 +282,46 @@
 
                     
 <div class="td-content">
-	<h1>Documentation</h1>
+	<h1>Getting started</h1>
         
 	
-	<p>Welcome to the AWS Copilot CLI developer guide and documentation. Throughout these docs we&rsquo;ll help you use Copilot to
-deploy your container to AWS, grow and release them to production and operate them.</p>
-<h4 id="what-is-copilot">What is Copilot?</h4>
-<p>Copilot is a CLI from Amazon Web Services which helps you build, release and operate your containerized applications on AWS and Amazon ECS.</p>
-<p>With Copilot, you focus on the architectures of your application, rather than the infrastructure which supports it.
-Want to deploy a public service? We will provision all the resources for a well architected, secure and load balanced web service on ECS.</p>
-<p>Want to add more services to your application? No problem. Beyond helping you spin up new services,
-Copilot also helps you model and operate all of your applicaiton&rsquo;s services together from the comfort of your terminal.</p>
-<h4 id="key-features-">Key Features 🔑</h4>
-<p>Copilot is full of features that help make developing, operating and releasing container apps on AWS delightful, including:</p>
-<ul>
-<li>Multi service applications with built in service discovery</li>
-<li>Model all of your test, staging and production environments in one place</li>
-<li>Continuous delivery pipelines for your services with one command</li>
-<li>Operations built in with loging, alarming and status built in</li>
-<li>Simple yet powerful configuration for your services</li>
-<li>Custom domain name and TLS support</li>
-<li>And much more &hellip;</li>
-</ul>
+	<p>Copilot is a tool to help you create, develop and manage your containerized apps on Amazon ECS. To get started, all you need is an AWS account, a Dockerfile, the AWS CLI and Copilot installed.</p>
+<h4 id="deploying-in-one-command">Deploying in one command</h4>
+<p>Make sure you have the AWS command line tool installed and have already run <code>aws configure</code> before you start.</p>
+<p>To deploy your app in one command, run the following in your terminal:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone git@github.com:aws-samples/amazon-ecs-cli-sample-app.git demo-app
+$ <span style="color:#204a87">cd</span> demo-app                                                                  
+$ copilot init                                                                     <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --app demo                                                                     <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --service api                                                                  <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --service-type <span style="color:#4e9a06">&#39;Load Balanced Web Service&#39;</span>                                     <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --dockerfile <span style="color:#4e9a06">&#39;./Dockerfile&#39;</span>                                                    <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --port <span style="color:#0000cf;font-weight:bold">80</span>                                                                      <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>  --deploy
+</code></pre></div><h3 id="deploying-step-by-step">Deploying, step by step</h3>
+<p>To get started with a sample app, you can follow the instructions below:</p>
+<h4 id="step-1-configure-your-credentials">Step 1: Configure your credentials</h4>
+<p>Copilot uses <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">profiles</a> to connect with your AWS account, so before you get started make sure to run <em>aws configure</em>. This will set up a default profile, which Copilot will use to manage your application and services.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ aws configure
+</code></pre></div><h4 id="step-2-get-some-code">Step 2: Get some code</h4>
+<p>With Copilot, you can easily deploy your containerized service. To get you up and running, you can clone our simple demo service. It&rsquo;s just a simple Flask service and a Dockerfile that describes how to deploy it. Feel free to poke around or update the code.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone git@github.com:aws-samples/amazon-ecs-cli-sample-app.git demo-app <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> demo-app
+</code></pre></div><h4 id="step-3-set-up-your-application">Step 3: Set up your Application</h4>
+<p>Now that you&rsquo;ve got some awesome code, what better to do next than deploy it? We know that most interesting containerized apps consist of more than just one single service, so Copilot organizes related services into an <em>application</em>. Running the <em>init</em> command will walk you through setting up an app.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ copilot init
+</code></pre></div><p>You&rsquo;ll be prompted to enter the name of an app - <em>demo</em> is a good choice. Your application is a collection of all your related services and the environments you run those services in. We&rsquo;ll talk a bit more about apps, services and environments later in the <em>concepts</em> section.</p>
+<h4 id="step-4-set-up-your-service">Step 4: Set up your service</h4>
+<p>Rather than require you to manually configure exactly which resources you need, what type of load balancer or which VPC configuration to use, you can tell us the <em>kind</em> of service you&rsquo;re building. In our case, we&rsquo;re building a simple Flask API service so let&rsquo;s select a <code>Load Balanced Web Service</code>.</p>
+<p>After that, you&rsquo;ll be prompted to enter a service name and select a Dockerfile. Let&rsquo;s call your service <em>api</em>.</p>
+<p>Once you press <em>enter</em>, Copilot will spin up some resources to create ECR repositories, S3 buckets and KMS keys. Copilot uses these resources to securely store your container images and configuration. Once those resources are spun up, you&rsquo;ll be asked if you want to deploy to a test environment. Select <em>yes</em> and Copilot will spin up your network, ECS cluster and services, an Application Load Balancer and will start a deployment to your service stack.</p>
+<img src="https://user-images.githubusercontent.com/828419/69770895-91813f80-113f-11ea-8be9-60df6c2bf3fc.gif" class="img-fluid">
+<blockquote>
+<p>A sped up view of setting up a hello-world project and a front-end app</p>
+</blockquote>
+<h4 id="step-5-cleaning-up">Step 5: Cleaning up</h4>
+<p>To delete and clean up all the resources, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ copilot app delete --env-profiles <span style="color:#000">test</span><span style="color:#ce5c00;font-weight:bold">=</span>default
+</code></pre></div><p>This will delete all the services and environments in your app.</p>
 
         <div class="section-index">
     
@@ -311,43 +339,15 @@ Copilot also helps you model and operate all of your applicaiton&rsquo;s service
             
         
             
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/installation/">Installation</a>
-                    </h5>
-                    <p></p>
-                </div>
+        
+            
+        
             
         
             
         
             
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/getting-started/">Getting started</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
         
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/concepts/">Concepts</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/service-types/">Service types</a>
-                    </h5>
-                    <p></p>
-                </div>
             
         
             
@@ -357,7 +357,7 @@ Copilot also helps you model and operate all of your applicaiton&rsquo;s service
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/f975c8076ef7d1451e2b6188085ea86d8438ef29">docs: add site/ dir with splashpage for the copilot website (f975c80)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/a38ef8a59727026d5c4a089725507f06a72eeb67">docs: update the documentation page style (a38ef8a)</a>
 </div>
 </div>
 

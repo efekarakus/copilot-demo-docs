@@ -7,7 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="aws.github.io/copilot-cli/docs/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="aws.github.io/copilot-cli/docs/installation/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,14 +21,14 @@
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/aws.github.io/copilot-cli/favicons/android-192x192.png" sizes="192x192">
 
-<title>Documentation | AWS Copilot CLI</title><meta property="og:title" content="Documentation" />
+<title>Installation | AWS Copilot CLI</title><meta property="og:title" content="Installation" />
 <meta property="og:description" content="AWS Copilot CLI developer guide and documentation." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="aws.github.io/copilot-cli/docs/" />
+<meta property="og:url" content="aws.github.io/copilot-cli/docs/installation/" />
 <meta property="og:site_name" content="AWS Copilot CLI" />
-<meta itemprop="name" content="Documentation">
+<meta itemprop="name" content="Installation">
 <meta itemprop="description" content="AWS Copilot CLI developer guide and documentation."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
+<meta name="twitter:title" content="Installation"/>
 <meta name="twitter:description" content="AWS Copilot CLI developer guide and documentation."/>
 
 
@@ -106,7 +106,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+            <a  href="aws.github.io/copilot-cli/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocs">
@@ -123,7 +123,7 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Installation</a>
+            <a  href="aws.github.io/copilot-cli/docs/installation/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Installation</a>
         </li>
         <ul>
             <li class="collapse show" id="awsgithubiocopilot-clidocsinstallation">
@@ -146,10 +146,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+            <a  href="aws.github.io/copilot-cli/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsgetting-started">
+            <li class="collapse " id="awsgithubiocopilot-clidocsgetting-started">
                 
                 
                 
@@ -169,10 +169,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Concepts</a>
+            <a  href="aws.github.io/copilot-cli/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsconcepts">
+            <li class="collapse " id="awsgithubiocopilot-clidocsconcepts">
                 
                 
                 
@@ -216,10 +216,10 @@
     
     <ul class="td-sidebar-nav__section pr-md-3">
         <li class="td-sidebar-nav__section-title">
-            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Service types</a>
+            <a  href="aws.github.io/copilot-cli/docs/service-types/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service types</a>
         </li>
         <ul>
-            <li class="collapse show" id="awsgithubiocopilot-clidocsservice-types">
+            <li class="collapse " id="awsgithubiocopilot-clidocsservice-types">
                 
                 
                 
@@ -263,8 +263,18 @@
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="aws.github.io/copilot-cli/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="aws.github.io/copilot-cli/docs/installation/">Installation</a>
 </li>
 
 	</ol>
@@ -272,29 +282,21 @@
 
                     
 <div class="td-content">
-	<h1>Documentation</h1>
+	<h1>Installation</h1>
         
 	
-	<p>Welcome to the AWS Copilot CLI developer guide and documentation. Throughout these docs we&rsquo;ll help you use Copilot to
-deploy your container to AWS, grow and release them to production and operate them.</p>
-<h4 id="what-is-copilot">What is Copilot?</h4>
-<p>Copilot is a CLI from Amazon Web Services which helps you build, release and operate your containerized applications on AWS and Amazon ECS.</p>
-<p>With Copilot, you focus on the architectures of your application, rather than the infrastructure which supports it.
-Want to deploy a public service? We will provision all the resources for a well architected, secure and load balanced web service on ECS.</p>
-<p>Want to add more services to your application? No problem. Beyond helping you spin up new services,
-Copilot also helps you model and operate all of your applicaiton&rsquo;s services together from the comfort of your terminal.</p>
-<h4 id="key-features-">Key Features 🔑</h4>
-<p>Copilot is full of features that help make developing, operating and releasing container apps on AWS delightful, including:</p>
-<ul>
-<li>Multi service applications with built in service discovery</li>
-<li>Model all of your test, staging and production environments in one place</li>
-<li>Continuous delivery pipelines for your services with one command</li>
-<li>Operations built in with loging, alarming and status built in</li>
-<li>Simple yet powerful configuration for your services</li>
-<li>Custom domain name and TLS support</li>
-<li>And much more &hellip;</li>
-</ul>
-
+	<p>Installing the Copilot CLI currently requires you to download our binary from the GitHub releases page manually.
+In the future, we&rsquo;ll distribute the binary through homebrew and other binaries as well.</p>
+<p>In the meantime, to install, copy and paste the command into your terminal.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># MacOS</span>
+curl -Lo /usr/local/bin/ecs-preview https://github.com/aws/amazon-ecs-cli-v2/releases/download/v0.0.9/ecs-preview-darwin-v0.0.9 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>chmod +x /usr/local/bin/ecs-preview <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>ecs-preview --help
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Linux</span>
+curl -Lo /usr/local/bin/ecs-preview https://github.com/aws/amazon-ecs-cli-v2/releases/download/v0.0.9/ecs-preview-linux-v0.0.9 <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>chmod +x /usr/local/bin/ecs-preview <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>ecs-preview --help
+</code></pre></div>
         <div class="section-index">
     
     
@@ -311,43 +313,15 @@ Copilot also helps you model and operate all of your applicaiton&rsquo;s service
             
         
             
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/installation/">Installation</a>
-                    </h5>
-                    <p></p>
-                </div>
+        
+            
+        
             
         
             
         
             
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/getting-started/">Getting started</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
         
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/concepts/">Concepts</a>
-                    </h5>
-                    <p></p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="aws.github.io/copilot-cli/docs/service-types/">Service types</a>
-                    </h5>
-                    <p></p>
-                </div>
             
         
             
