@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Copilot CLI – Installation</title>
-    <link>efekarakus.github.io/copilot-demo-docs/docs/installation/</link>
+    <link>/copilot-demo-docs/docs/installation/</link>
     <description>Recent content in Installation on AWS Copilot CLI</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="efekarakus.github.io/copilot-demo-docs/docs/installation/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/copilot-demo-docs/docs/installation/index.xml" rel="self" type="application/rss+xml" />
     
     
       
