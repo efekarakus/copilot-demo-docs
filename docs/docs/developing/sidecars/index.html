@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <base href="https://efekarakus.github.io/copilot-demo-docs/">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.72.0" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/copilot-demo-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-192x192.png" sizes="192x192">
+
+<title>Sidecars | AWS Copilot CLI</title><meta property="og:title" content="Sidecars" />
+<meta property="og:description" content="Sidecars are additional containers that run along side the main container. They are usually used to perform peripheral tasks such as logging, configuration, or proxying requests.
+AWS also provides some plugin options that can be seamlessly incorporated with your ECS service, including but not limited to FireLens, X-ray, and AWS App Mesh.
+How to add sidecars with Copilot? There are two ways of adding sidecars using Copilot manifest: specify general sidecars or with sidecar patterns." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://efekarakus.github.io/copilot-demo-docs/docs/developing/sidecars/" />
+<meta property="article:modified_time" content="2020-07-01T13:59:57-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="Sidecars">
+<meta itemprop="description" content="Sidecars are additional containers that run along side the main container. They are usually used to perform peripheral tasks such as logging, configuration, or proxying requests.
+AWS also provides some plugin options that can be seamlessly incorporated with your ECS service, including but not limited to FireLens, X-ray, and AWS App Mesh.
+How to add sidecars with Copilot? There are two ways of adding sidecars using Copilot manifest: specify general sidecars or with sidecar patterns.">
+<meta itemprop="dateModified" content="2020-07-01T13:59:57-07:00" />
+<meta itemprop="wordCount" content="377">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sidecars"/>
+<meta name="twitter:description" content="Sidecars are additional containers that run along side the main container. They are usually used to perform peripheral tasks such as logging, configuration, or proxying requests.
+AWS also provides some plugin options that can be seamlessly incorporated with your ECS service, including but not limited to FireLens, X-ray, and AWS App Mesh.
+How to add sidecars with Copilot? There are two ways of adding sidecars using Copilot manifest: specify general sidecars or with sidecar patterns."/>
+
+
+
+
+
+<link rel="preload" href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" as="style">
+<link href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body class="td-page">
+<header>
+    
+<nav class="navbar flex-column flex-md-row td-navbar" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="navbar-brand" href="/copilot-demo-docs/">
+                    <span class="navbar-logo"></span><span class="site-title">$ copilot</span>
+                </a>
+                <div class="main-navbar" >
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        
+                        
+                            <li class="nav-item">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link active" href="/copilot-demo-docs/docs/" ><span class="active">Documentation</span></a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="navbar-nav d-none d-lg-block">
+</div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+    <div class="container">
+        <div class="td-main">
+            <div class="row flex-xl-nowrap">
+                <div class="col-12 col-md-3 col-xl-3 td-sidebar d-print-none" style="padding-top: 5.5rem;">
+                    
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+        <form class="td-sidebar__search d-flex align-items-center p-0">
+            
+            <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+            </button>
+        </form>
+    <nav class="collapse td-sidebar-nav pl-4" id="td-section-nav">
+        
+        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocs">
+                
+                
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsinstallation">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsgetting-started">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsconcepts">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsapplications" href="/copilot-demo-docs/docs/concepts/applications/">Applications</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsenvironments" href="/copilot-demo-docs/docs/concepts/environments/">Environments</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsservices" href="/copilot-demo-docs/docs/concepts/services/">Services</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptspipelines" href="/copilot-demo-docs/docs/concepts/pipelines/">Pipelines</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/service-types/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service types</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsservice-types">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typeslb-web-service" href="/copilot-demo-docs/docs/service-types/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typesbackend-service" href="/copilot-demo-docs/docs/service-types/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/manifests/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Manifests</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsmanifests">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestslb-web-service" href="/copilot-demo-docs/docs/manifests/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestsbackend-service" href="/copilot-demo-docs/docs/manifests/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/developing/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Developing</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocsdeveloping">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingenv-vars" href="/copilot-demo-docs/docs/developing/env-vars/">Environment Variables</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsecrets" href="/copilot-demo-docs/docs/developing/secrets/">Using Secrets</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingservice-discovery" href="/copilot-demo-docs/docs/developing/service-discovery/">Service Discovery</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingaddons" href="/copilot-demo-docs/docs/developing/addons/">Additional AWS Resources</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page  active" id="m-copilot-demo-docsdocsdevelopingsidecars" href="/copilot-demo-docs/docs/developing/sidecars/">Sidecars</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Commands</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommands">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsinit" href="/copilot-demo-docs/docs/commands/init/">init</a>
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">app</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsapp">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappinit" href="/copilot-demo-docs/docs/commands/app/init/">app init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappls" href="/copilot-demo-docs/docs/commands/app/ls/">app ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappshow" href="/copilot-demo-docs/docs/commands/app/show/">app show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappdelete" href="/copilot-demo-docs/docs/commands/app/delete/">app delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/env/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">env</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsenv">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvinit" href="/copilot-demo-docs/docs/commands/env/init/">env init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvls" href="/copilot-demo-docs/docs/commands/env/ls/">env ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvdelete" href="/copilot-demo-docs/docs/commands/env/delete/">env delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/svc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">svc</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandssvc">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcinit" href="/copilot-demo-docs/docs/commands/svc/init/">svc init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcls" href="/copilot-demo-docs/docs/commands/svc/ls/">svc ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcshow" href="/copilot-demo-docs/docs/commands/svc/show/">svc show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvclogs" href="/copilot-demo-docs/docs/commands/svc/logs/">svc logs</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcstatus" href="/copilot-demo-docs/docs/commands/svc/status/">svc status</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcpackage" href="/copilot-demo-docs/docs/commands/svc/package/">svc package</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdeploy" href="/copilot-demo-docs/docs/commands/svc/deploy/">svc deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdelete" href="/copilot-demo-docs/docs/commands/svc/delete/">svc delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/pipeline/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">pipeline</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandspipeline">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineinit" href="/copilot-demo-docs/docs/commands/pipeline/init/">pipeline init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineupdate" href="/copilot-demo-docs/docs/commands/pipeline/update/">pipeline update</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelinedelete" href="/copilot-demo-docs/docs/commands/pipeline/delete/">pipeline delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsdeploy" href="/copilot-demo-docs/docs/commands/deploy/">deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsversion" href="/copilot-demo-docs/docs/commands/version/">version</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandscompletion" href="/copilot-demo-docs/docs/commands/completion/">completion</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+    </nav>
+</div>
+
+
+
+
+                </div>
+                <main class="col-12 col-md-9 col-xl-9 pl-md-5 documentation" role="main">
+                    
+  
+
+                    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/developing/">Developing</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/developing/sidecars/">Sidecars</a>
+</li>
+
+	</ol>
+</nav	>
+
+                    
+<div class="td-content">
+	<h1>Sidecars</h1>
+    
+	       
+	<p>Sidecars are additional containers that run along side the main container. They are usually used to perform peripheral tasks such as logging, configuration, or proxying requests.</p>
+<p>AWS also provides some plugin options that can be seamlessly incorporated with your ECS service, including but not limited to <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">FireLens</a>, <a href="https://aws.amazon.com/xray/">X-ray</a>, and <a href="https://aws.amazon.com/app-mesh/">AWS App Mesh</a>.</p>
+<h3 id="how-to-add-sidecars-with-copilot">How to add sidecars with Copilot?</h3>
+<p>There are two ways of adding sidecars using Copilot manifest: specify <a href="docs/developing/sidecars#general-sidecars">general sidecars</a> or with <a href="docs/developing/sidecars#sidecar-patterns">sidecar patterns</a>.</p>
+<h4 id="general-sidecars">General sidecars</h4>
+<p>You&rsquo;ll need to provide the URL for the sidecar image. Optionally, you can specify the port you&rsquo;d like to expose and the credential parameter for <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth.html">private registry</a>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">sidecars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">sidecar name }}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Port of the container to expose. (Optional)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>port<span style="color:#f8f8f8;text-decoration:underline"> </span>number<span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Image URL for sidecar container. (Required)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>image<span style="color:#f8f8f8;text-decoration:underline"> </span>url<span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># ARN of the secret containing the private repository credentials. (Optional)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">credentialParameter</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>credential<span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Below is an example of specifying the <a href="https://www.nginx.com/">nginx</a> sidecar container in a load balanced web service manifest.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>api<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Load<span style="color:#f8f8f8;text-decoration:underline"> </span>Balanced<span style="color:#f8f8f8;text-decoration:underline"> </span>Web<span style="color:#f8f8f8;text-decoration:underline"> </span>Service<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">build</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>api/Dockerfile<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">3000</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;api&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">healthcheck</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;/api/health-check&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Target container for Load Balancer is our sidecar &#39;nginx&#39;, instead of the service container.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">targetContainer</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;nginx&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">256</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">512</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">count</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">sidecars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">nginx</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1234567890.</span>dkr.ecr.us-west<span style="color:#0000cf;font-weight:bold">-2.</span>amazonaws.com/reverse-proxy<span style="color:#000;font-weight:bold">:</span>revision_1<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h4 id="sidecar-patterns">Sidecar patterns</h4>
+<p>Sidecar patterns are pre-defined Copilot sidecar configurations. The only supported pattern is FireLens for now but we&rsquo;ll add more in the future!</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># In the manifest.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">logging</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># The fluent bit image. (Optional, we&#39;ll use &#34;amazon/aws-for-fluent-bit:latest&#34; by default)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>image<span style="color:#f8f8f8;text-decoration:underline"> </span>URL<span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># The configuration options to send to the Firelens log driver. (Optional)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">destination</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">config key }}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>config<span style="color:#f8f8f8;text-decoration:underline"> </span>value}}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Whether to include ECS metadata in logs. (Optional, default to true)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enableMetadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span>|<span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Secret to pass to the log configuration. (Optional)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">secretOptions</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">key }}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>value}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># The full config file path in your custom fluent bit image.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">configFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{{<span style="color:#f8f8f8;text-decoration:underline"> </span>config<span style="color:#f8f8f8;text-decoration:underline"> </span>file<span style="color:#f8f8f8;text-decoration:underline"> </span>path<span style="color:#f8f8f8;text-decoration:underline"> </span>}}<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">logging</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">destination</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>cloudwatch<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>us-west<span style="color:#0000cf;font-weight:bold">-2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">log_group_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>/copilot/sidecar-test-hello<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">log_stream_prefix</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>copilot/<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>You might need to add necessary permissions to the task role so that FireLens can forward your data. You can add permissions by specifying them in your <a href="docs/developing/addons">addons</a>. For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">Resources</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">FireLensPolicy</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>AWS<span style="color:#000;font-weight:bold">::</span>IAM<span style="color:#000;font-weight:bold">::</span>ManagedPolicy<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Properties</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">PolicyDocument</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">Version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">2012-10-17</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">Statement</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">Effect</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Allow<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">Action</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span>- logs<span style="color:#000;font-weight:bold">:</span>CreateLogStream<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span>- logs<span style="color:#000;font-weight:bold">:</span>CreateLogGroup<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span>- logs<span style="color:#000;font-weight:bold">:</span>DescribeLogStreams<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span>- logs<span style="color:#000;font-weight:bold">:</span>PutLogEvents<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">Resource</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{{ resource ARN }}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Outputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">FireLensPolicyArn</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>An<span style="color:#f8f8f8;text-decoration:underline"> </span>addon<span style="color:#f8f8f8;text-decoration:underline"> </span>ManagedPolicy<span style="color:#f8f8f8;text-decoration:underline"> </span>gets<span style="color:#f8f8f8;text-decoration:underline"> </span>used<span style="color:#f8f8f8;text-decoration:underline"> </span>by<span style="color:#f8f8f8;text-decoration:underline"> </span>the<span style="color:#f8f8f8;text-decoration:underline"> </span>ECS<span style="color:#f8f8f8;text-decoration:underline"> </span>task<span style="color:#f8f8f8;text-decoration:underline"> </span>role<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>!Ref<span style="color:#f8f8f8;text-decoration:underline"> </span>FireLensPolicy<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p><em>Note ⚠️: Since Firelens log driver can route your main container&rsquo;s logs to various destinations, our <a href="https://github.com/aws/amazon-ecs-cli-v2/wiki/app-logs-command"><code>svc logs</code></a> can only track them when they are sent to the log group we create for Copilot service in CloudWatch.</em></p>
+<h3 id="-were-going-to-make-this-easier-and-more-powerful">❇️ We&rsquo;re going to make this easier and more powerful!</h3>
+<p>Currently we only support using remote images for sidecars which means users need to build and push their local sidecar image. But, we are planning to support using local image or Dockerfile. Additionally, Firelens will be able to route logs for the other sidecars (not just the main container).</p>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 1, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/862d399b8d95b7a80ec75803566a03e6b01cebc8">docs: add content upto commands (862d399)</a>
+</div>
+</div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/copilot-demo-docs/js/main.min.a822434404cc19434f6eed64670a77da5565d2558b969d22c01066e2b199cef4.js" integrity="sha256-qCJDRATMGUNPbu1kZwp32lVl0lWLlp0iwBBm4rGZzvQ=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

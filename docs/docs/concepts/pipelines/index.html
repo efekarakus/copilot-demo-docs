@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <base href="https://efekarakus.github.io/copilot-demo-docs/">
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.72.0" />
@@ -25,15 +26,15 @@
 In this section, we&rsquo;ll talk about using Copilot to set up a CodePipeline which automatically builds your service code when you push to GitHub, deploys to your environments, and runs automated testing.
 Why? I won&rsquo;t get too philosophical about releasing software, but what&rsquo;s the point of having a release pipeline?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/copilot-demo-docs/docs/concepts/pipelines/" />
+<meta property="og:url" content="https://efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-30T16:35:33-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta property="article:modified_time" content="2020-07-01T13:59:57-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
 <meta itemprop="name" content="Pipelines">
 <meta itemprop="description" content="Having an automated release process is one of the most important parts of software delivery so Copilot wants to make setting up that automated release process as easy as possible 🚀.
 In this section, we&rsquo;ll talk about using Copilot to set up a CodePipeline which automatically builds your service code when you push to GitHub, deploys to your environments, and runs automated testing.
 Why? I won&rsquo;t get too philosophical about releasing software, but what&rsquo;s the point of having a release pipeline?">
 <meta itemprop="datePublished" content="2017-01-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-30T16:35:33-07:00" />
+<meta itemprop="dateModified" content="2020-07-01T13:59:57-07:00" />
 <meta itemprop="wordCount" content="1120">
 
 
@@ -48,8 +49,8 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 
 
 
-<link rel="preload" href="/copilot-demo-docs/scss/main.min.f93dbde20999552814ae20bb653c87119274a84f3e615d410fdb20532f80cc20.css" as="style">
-<link href="/copilot-demo-docs/scss/main.min.f93dbde20999552814ae20bb653c87119274a84f3e615d410fdb20532f80cc20.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" as="style">
+<link href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -107,7 +108,11 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
-    
+        <form class="td-sidebar__search d-flex align-items-center p-0">
+            
+            <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+            </button>
+        </form>
     <nav class="collapse td-sidebar-nav pl-4" id="td-section-nav">
         
         
@@ -254,6 +259,341 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 
                     
                 
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/manifests/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Manifests</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsmanifests">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestslb-web-service" href="/copilot-demo-docs/docs/manifests/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestsbackend-service" href="/copilot-demo-docs/docs/manifests/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/developing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Developing</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsdeveloping">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingenv-vars" href="/copilot-demo-docs/docs/developing/env-vars/">Environment Variables</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsecrets" href="/copilot-demo-docs/docs/developing/secrets/">Using Secrets</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingservice-discovery" href="/copilot-demo-docs/docs/developing/service-discovery/">Service Discovery</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingaddons" href="/copilot-demo-docs/docs/developing/addons/">Additional AWS Resources</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsidecars" href="/copilot-demo-docs/docs/developing/sidecars/">Sidecars</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Commands</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommands">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsinit" href="/copilot-demo-docs/docs/commands/init/">init</a>
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">app</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsapp">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappinit" href="/copilot-demo-docs/docs/commands/app/init/">app init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappls" href="/copilot-demo-docs/docs/commands/app/ls/">app ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappshow" href="/copilot-demo-docs/docs/commands/app/show/">app show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappdelete" href="/copilot-demo-docs/docs/commands/app/delete/">app delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/env/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">env</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsenv">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvinit" href="/copilot-demo-docs/docs/commands/env/init/">env init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvls" href="/copilot-demo-docs/docs/commands/env/ls/">env ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvdelete" href="/copilot-demo-docs/docs/commands/env/delete/">env delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/svc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">svc</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandssvc">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcinit" href="/copilot-demo-docs/docs/commands/svc/init/">svc init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcls" href="/copilot-demo-docs/docs/commands/svc/ls/">svc ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcshow" href="/copilot-demo-docs/docs/commands/svc/show/">svc show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvclogs" href="/copilot-demo-docs/docs/commands/svc/logs/">svc logs</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcstatus" href="/copilot-demo-docs/docs/commands/svc/status/">svc status</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcpackage" href="/copilot-demo-docs/docs/commands/svc/package/">svc package</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdeploy" href="/copilot-demo-docs/docs/commands/svc/deploy/">svc deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdelete" href="/copilot-demo-docs/docs/commands/svc/delete/">svc delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/pipeline/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">pipeline</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandspipeline">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineinit" href="/copilot-demo-docs/docs/commands/pipeline/init/">pipeline init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineupdate" href="/copilot-demo-docs/docs/commands/pipeline/update/">pipeline update</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelinedelete" href="/copilot-demo-docs/docs/commands/pipeline/delete/">pipeline delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsdeploy" href="/copilot-demo-docs/docs/commands/deploy/">deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsversion" href="/copilot-demo-docs/docs/commands/version/">version</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandscompletion" href="/copilot-demo-docs/docs/commands/completion/">completion</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
             </li>
         </ul>
     </ul>
@@ -283,21 +623,21 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 
 
 <li class="breadcrumb-item" >
-	<a href="/copilot-demo-docs/docs/">Documentation</a>
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/">Documentation</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/copilot-demo-docs/docs/concepts/">Concepts</a>
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/concepts/">Concepts</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/copilot-demo-docs/docs/concepts/pipelines/">Pipelines</a>
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/">Pipelines</a>
 </li>
 
 	</ol>
@@ -310,10 +650,10 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 	       
 	<p>Having an automated release process is one of the most important parts of software delivery so Copilot wants to make setting up that automated release process as easy as possible 🚀.</p>
 <p>In this section, we&rsquo;ll talk about using Copilot to set up a CodePipeline which automatically builds your service code when you push to GitHub, deploys to your environments, and runs automated testing.</p>
-<h2 id="why">Why?</h2>
+<h3 id="why">Why?</h3>
 <p>I won&rsquo;t get too philosophical about releasing software, but what&rsquo;s the point of having a release pipeline? With <code>copilot deploy</code> you can deploy your service directly from your computer to ECS, why add a middleman? That&rsquo;s a great question. For some apps, manually using <code>deploy</code> is enough, but as your release process gets more complicated (as you add more environments or add automated testing for example) you want to offload the boring work of repeatably orchestrating that process to a service. Having two services, each having two environments (test and production, say) and wanting to run integration tests after you deploy to your test environment becomes surprisingly cumbersome to do by hand.</p>
 <p>Using an automated release tool like CodePipeline helps make your release manageable. Even if your release isn&rsquo;t particularly complicated, knowing that you can just <code>git push</code> to deploy your change always feels a little magical 🌈.</p>
-<h2 id="pipeline-structure">Pipeline structure</h2>
+<h3 id="pipeline-structure">Pipeline structure</h3>
 <p>Copilot can set up a CodePipeline for you with a few commands - but before we jump into that, let&rsquo;s talk a little bit about the structure of the pipeline we&rsquo;ll be generating. Our pipeline will have the following basic structure:</p>
 <ol>
 <li><strong>GitHub Source</strong> - when you push to a configured branch (master by default), a new pipeline execution is triggered.</li>
@@ -322,7 +662,7 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 </ol>
 <p>Once you&rsquo;ve set up a CodePipeline using Copilot, all you&rsquo;ll have to do is push to your GitHub repository, and CodePipeline will orchestrate the deployments.</p>
 <p>Want to learn more about CodePipeline? Check out their <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome-introducing.html">getting started docs</a>.</p>
-<h2 id="creating-a-pipeline-in-3-steps">Creating a Pipeline in 3 steps</h2>
+<h3 id="creating-a-pipeline-in-3-steps">Creating a Pipeline in 3 steps</h3>
 <p>Creating a Pipeline only requires three steps:</p>
 <ol>
 <li>Preparing the pipeline structure.</li>
@@ -334,7 +674,7 @@ Why? I won&rsquo;t get too philosophical about releasing software, but what&rsqu
 $ git add copilot/buildspec.yml <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> git commit -m <span style="color:#4e9a06">&#34;Adding Pipeline Buildspec&#34;</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> git push
 $ copilot pipeline update
 </code></pre></div><p>✨ And you&rsquo;ll have a new pipeline configured in your application account. Want to understand a little bit more what&rsquo;s going on? Read on!</p>
-<h2 id="setting-up-a-pipeline-step-by-step">Setting up a Pipeline, step by step</h2>
+<h3 id="setting-up-a-pipeline-step-by-step">Setting up a Pipeline, step by step</h3>
 <p><strong>Step 1: Configuring your Pipeline</strong></p>
 <p>Pipeline configurations are created at a workspace level. If your workspace has a single service then your pipeline will be triggered only for that service. However, if you have multiple services in a workspace then it will build all the services in the workspace. To start setting up a pipeline, <code>cd</code> into your service(s)&rsquo;s workspace and run:</p>
 <p><code>$ copilot pipeline init</code></p>
@@ -391,7 +731,7 @@ $ copilot pipeline update
 <img src="https://user-images.githubusercontent.com/828419/71861318-c7083980-30aa-11ea-80bb-4bea25bf5d04.png" class="img-fluid" alt="Your completed pipeline">
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/a38ef8a59727026d5c4a089725507f06a72eeb67">docs: update the documentation page style (a38ef8a)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 1, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/862d399b8d95b7a80ec75803566a03e6b01cebc8">docs: add content upto commands (862d399)</a>
 </div>
 </div>
 
@@ -411,7 +751,7 @@ $ copilot pipeline update
 
 
 
-<script src="/copilot-demo-docs/js/main.min.63763fd9b77fb9d8e355c3aa14145ca1c353dcfa5504a36067cd7535607fdb67.js" integrity="sha256-Y3Y/2bd/udjjVcOqFBRcocNT3PpVBKNgZ811NWB/22c=" crossorigin="anonymous"></script>
+<script src="/copilot-demo-docs/js/main.min.a822434404cc19434f6eed64670a77da5565d2558b969d22c01066e2b199cef4.js" integrity="sha256-qCJDRATMGUNPbu1kZwp32lVl0lWLlp0iwBBm4rGZzvQ=" crossorigin="anonymous"></script>
 
 
 

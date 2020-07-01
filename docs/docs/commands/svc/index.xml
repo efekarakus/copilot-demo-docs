@@ -1,0 +1,246 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Copilot CLI – svc</title>
+    <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/</link>
+    <description>Recent content in svc on AWS Copilot CLI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: svc init</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/init/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc init&lt;/code&gt; creates a new &lt;a href=&#34;docs/concepts/services&#34;&gt;service&lt;/a&gt; to run your code for you.&lt;/p&gt;
+&lt;p&gt;After running this command, the CLI creates sub-directory with your app name in your local &lt;code&gt;copilot&lt;/code&gt; directory
+where you&amp;rsquo;ll find a &lt;a href=&#34;docs/manifests&#34;&gt;manifest file&lt;/a&gt;. Feel free to update your manifest file to change the
+default configs for your service. The CLI also sets up an ECR repository with a policy for
+all &lt;a href=&#34;docs/concepts/environments&#34;&gt;environments&lt;/a&gt; to be able to pull from it. Then, your service gets registered to
+AWS System Manager Parameter Store so that the CLI can keep track of your it.&lt;/p&gt;
+&lt;p&gt;After that, if you already have an environment set up, you can run &lt;code&gt;copilot deploy&lt;/code&gt; to deploy your service in that
+environment.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Required Flags
+  -d, --dockerfile string   Path to the Dockerfile.
+  -n, --name string         Name of the service.
+  -t, --svc-type string     Type of service to create. Must be one of:
+                            &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Load Balanced Web Service&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Backend Service&amp;#34;&lt;/span&gt;
+
+Load Balanced Web Service Flags
+      --port uint16   Optional. The port on which your service listens.
+
+Backend Service Flags
+      --port uint16   Optional. The port on which your service listens.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Each service type has its own optional and required flags besides the common required flags.
+To create a &amp;ldquo;frontend&amp;rdquo; load balanced web service you could run:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ copilot svc init --name frontend --app-type &amp;quot;Load Balanced Web Service&amp;quot; --dockerfile ./frontend/Dockerfile&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/svc-init.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc ls</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/ls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/ls/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;copilot svc ls&lt;/code&gt; lists all the Copilot services for a particular application.&lt;/p&gt;
+&lt;h2 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -a, --app string   Name of the application.
+  -h, --help         &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ls
+      --json         Optional. Outputs in JSON format.
+      --local        Only show services in the workspace.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h2&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/svc-ls.svg?sanitize=true&#34;&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc show</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/show/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/show/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc show
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc show&lt;/code&gt; shows info about a deployed service, including endpoints, capacity and related resources per environment.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -a, --app string    Name of the application.
+  -h, --help          &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; show
+      --json          Optional. Outputs in JSON format.
+  -n, --name string   Name of the service.
+      --resources     Optional. Show the resources in your service.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/svc-show.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc logs</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/logs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/logs/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc logs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc logs&lt;/code&gt; displays the logs of a deployed service.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -a, --app string          Name of the application.
+      --end-time string     Optional. Only &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; logs before a specific date &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RFC3339&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+                            Defaults to all logs. Only one of end-time / follow may be used.
+  -e, --env string          Name of the environment.
+      --follow              Optional. Specifies &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; the logs should be streamed.
+  -h, --help                &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; logs
+      --json                Optional. Outputs in JSON format.
+      --limit int           Optional. The maximum number of log events returned. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default 10&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  -n, --name string         Name of the service.
+      --since duration      Optional. Only &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; logs newer than a relative duration like 5s, 2m, or 3h.
+                            Defaults to all logs. Only one of start-time / since may be used.
+      --start-time string   Optional. Only &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; logs after a specific date &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RFC3339&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+                            Defaults to all logs. Only one of start-time / since may be used.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Displays logs of the service &amp;ldquo;my-svc&amp;rdquo; in environment &amp;ldquo;test&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ copilot svc logs -n my-svc -e test&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Displays logs in the last hour.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ copilot svc logs --since 1h&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Displays logs from 2006-01-02T15:04:05 to 2006-01-02T15:05:05.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ copilot svc logs --start-time 2006-01-02T15:04:05+00:00 --end-time 2006-01-02T15:05:05+00:00&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc status</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/status/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/status/</guid>
+      <description>
+        
+        
+        &lt;pre&gt;&lt;code&gt;$ copilot svc status
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc status&lt;/code&gt; shows the health status of a deployed service, including service status, task status, and related CloudWatch alarms.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;  -a, --app string    Name of the application.
+  -e, --env string    Name of the environment.
+  -h, --help          help for status
+      --json          Optional. Outputs in JSON format.
+  -n, --name string   Name of the service.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/svc-status.svg?sanitize=true&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc package</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/package/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/package/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc package
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc package&lt;/code&gt; produces the CloudFormation template(s) used to deploy a service to an environment.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -e, --env string          Name of the environment.
+  -h, --help                &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; package
+  -n, --name string         Name of the service.
+      --output-dir string   Optional. Writes the stack template and template configuration to a directory.
+      --tag string          Optional. The service&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s image tag.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;Write the CloudFormation stack and configuration to a &amp;ldquo;infrastructure/&amp;rdquo; sub-directory instead of printing.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc package -n frontend -e &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; --output-dir ./infrastructure
+$ ls ./infrastructure
+frontend.stack.yml      frontend-test.config.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc deploy</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/deploy/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;Service deploy takes your local code and configuration and deploys it.&lt;/p&gt;
+&lt;p&gt;The steps involved in service deploy are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build your local Dockerfile into an image&lt;/li&gt;
+&lt;li&gt;Tag it with the value from &lt;code&gt;--tag&lt;/code&gt; or the latest git sha (if you&amp;rsquo;re in a git directory)&lt;/li&gt;
+&lt;li&gt;Push the image to ECR&lt;/li&gt;
+&lt;li&gt;Package your Manifest file and Addons into CloudFormation&lt;/li&gt;
+&lt;li&gt;Create / Update your ECS task-definition and service&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -e, --env string                     Name of the environment.
+  -h, --help                           &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; deploy
+  -n, --name string                    Name of the service.
+      --resource-tags stringToString   Optional. Labels with a key and value separated with commas.
+                                       Allows you to categorize resources. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[])&lt;/span&gt;
+      --tag string                     Optional. The service&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s image tag.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc delete</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/delete/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc delete &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot svc delete&lt;/code&gt; deletes all resources associated with your service in a particular environment.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  -e, --env string    Name of the environment.
+  -h, --help          &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; delete
+  -n, --name string   Name of the service.
+      --yes           Skips confirmation prompt.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Force delete the application with environments &amp;ldquo;test&amp;rdquo; and &amp;ldquo;prod&amp;rdquo;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc delete --name &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; --yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

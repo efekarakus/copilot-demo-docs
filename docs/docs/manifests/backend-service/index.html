@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <base href="https://efekarakus.github.io/copilot-demo-docs/">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.72.0" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/copilot-demo-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-192x192.png" sizes="192x192">
+
+<title>Backend Service | AWS Copilot CLI</title><meta property="og:title" content="Backend Service" />
+<meta property="og:description" content="List of all available properties for a &#39;Backend Service&#39; manifest.
+# Your service name will be used in naming your resources like log groups, ECS services, etc.name:api# Your service is reachable at &#34;http://{{.Name}}.${COPILOT_SERVICE_DISCOVERY_ENDPOINT}:{{.Image.Port}}&#34; but is not public.type:BackendAppimage:# Path to your service&#39;s Dockerfile.build:./api/Dockerfile# Port exposed through your container to route traffic to it.port:8080#Optional. Configuration for your container healthcheck.healthcheck:# The command the container runs to determine if it&#39;s healthy.command:[&#34;CMD-SHELL&#34;,&#34;curl -f http://localhost:8080 || exit 1&#34;]interval:10s# Time period between healthchecks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://efekarakus.github.io/copilot-demo-docs/docs/manifests/backend-service/" />
+<meta property="article:modified_time" content="2020-07-01T13:59:57-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="Backend Service">
+<meta itemprop="description" content="List of all available properties for a &#39;Backend Service&#39; manifest.
+# Your service name will be used in naming your resources like log groups, ECS services, etc.name:api# Your service is reachable at &#34;http://{{.Name}}.${COPILOT_SERVICE_DISCOVERY_ENDPOINT}:{{.Image.Port}}&#34; but is not public.type:BackendAppimage:# Path to your service&#39;s Dockerfile.build:./api/Dockerfile# Port exposed through your container to route traffic to it.port:8080#Optional. Configuration for your container healthcheck.healthcheck:# The command the container runs to determine if it&#39;s healthy.command:[&#34;CMD-SHELL&#34;,&#34;curl -f http://localhost:8080 || exit 1&#34;]interval:10s# Time period between healthchecks.">
+<meta itemprop="dateModified" content="2020-07-01T13:59:57-07:00" />
+<meta itemprop="wordCount" content="219">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Backend Service"/>
+<meta name="twitter:description" content="List of all available properties for a &#39;Backend Service&#39; manifest.
+# Your service name will be used in naming your resources like log groups, ECS services, etc.name:api# Your service is reachable at &#34;http://{{.Name}}.${COPILOT_SERVICE_DISCOVERY_ENDPOINT}:{{.Image.Port}}&#34; but is not public.type:BackendAppimage:# Path to your service&#39;s Dockerfile.build:./api/Dockerfile# Port exposed through your container to route traffic to it.port:8080#Optional. Configuration for your container healthcheck.healthcheck:# The command the container runs to determine if it&#39;s healthy.command:[&#34;CMD-SHELL&#34;,&#34;curl -f http://localhost:8080 || exit 1&#34;]interval:10s# Time period between healthchecks."/>
+
+
+
+
+
+<link rel="preload" href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" as="style">
+<link href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body class="td-page">
+<header>
+    
+<nav class="navbar flex-column flex-md-row td-navbar" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="navbar-brand" href="/copilot-demo-docs/">
+                    <span class="navbar-logo"></span><span class="site-title">$ copilot</span>
+                </a>
+                <div class="main-navbar" >
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        
+                        
+                            <li class="nav-item">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link active" href="/copilot-demo-docs/docs/" ><span class="active">Documentation</span></a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="navbar-nav d-none d-lg-block">
+</div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+    <div class="container">
+        <div class="td-main">
+            <div class="row flex-xl-nowrap">
+                <div class="col-12 col-md-3 col-xl-3 td-sidebar d-print-none" style="padding-top: 5.5rem;">
+                    
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+        <form class="td-sidebar__search d-flex align-items-center p-0">
+            
+            <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+            </button>
+        </form>
+    <nav class="collapse td-sidebar-nav pl-4" id="td-section-nav">
+        
+        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocs">
+                
+                
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsinstallation">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsgetting-started">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsconcepts">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsapplications" href="/copilot-demo-docs/docs/concepts/applications/">Applications</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsenvironments" href="/copilot-demo-docs/docs/concepts/environments/">Environments</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsservices" href="/copilot-demo-docs/docs/concepts/services/">Services</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptspipelines" href="/copilot-demo-docs/docs/concepts/pipelines/">Pipelines</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/service-types/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service types</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsservice-types">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typeslb-web-service" href="/copilot-demo-docs/docs/service-types/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typesbackend-service" href="/copilot-demo-docs/docs/service-types/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/manifests/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Manifests</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocsmanifests">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestslb-web-service" href="/copilot-demo-docs/docs/manifests/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page  active" id="m-copilot-demo-docsdocsmanifestsbackend-service" href="/copilot-demo-docs/docs/manifests/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/developing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Developing</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsdeveloping">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingenv-vars" href="/copilot-demo-docs/docs/developing/env-vars/">Environment Variables</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsecrets" href="/copilot-demo-docs/docs/developing/secrets/">Using Secrets</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingservice-discovery" href="/copilot-demo-docs/docs/developing/service-discovery/">Service Discovery</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingaddons" href="/copilot-demo-docs/docs/developing/addons/">Additional AWS Resources</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsidecars" href="/copilot-demo-docs/docs/developing/sidecars/">Sidecars</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Commands</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommands">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsinit" href="/copilot-demo-docs/docs/commands/init/">init</a>
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">app</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsapp">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappinit" href="/copilot-demo-docs/docs/commands/app/init/">app init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappls" href="/copilot-demo-docs/docs/commands/app/ls/">app ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappshow" href="/copilot-demo-docs/docs/commands/app/show/">app show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappdelete" href="/copilot-demo-docs/docs/commands/app/delete/">app delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/env/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">env</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsenv">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvinit" href="/copilot-demo-docs/docs/commands/env/init/">env init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvls" href="/copilot-demo-docs/docs/commands/env/ls/">env ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvdelete" href="/copilot-demo-docs/docs/commands/env/delete/">env delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/svc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">svc</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandssvc">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcinit" href="/copilot-demo-docs/docs/commands/svc/init/">svc init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcls" href="/copilot-demo-docs/docs/commands/svc/ls/">svc ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcshow" href="/copilot-demo-docs/docs/commands/svc/show/">svc show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvclogs" href="/copilot-demo-docs/docs/commands/svc/logs/">svc logs</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcstatus" href="/copilot-demo-docs/docs/commands/svc/status/">svc status</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcpackage" href="/copilot-demo-docs/docs/commands/svc/package/">svc package</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdeploy" href="/copilot-demo-docs/docs/commands/svc/deploy/">svc deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdelete" href="/copilot-demo-docs/docs/commands/svc/delete/">svc delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/pipeline/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">pipeline</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandspipeline">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineinit" href="/copilot-demo-docs/docs/commands/pipeline/init/">pipeline init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineupdate" href="/copilot-demo-docs/docs/commands/pipeline/update/">pipeline update</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelinedelete" href="/copilot-demo-docs/docs/commands/pipeline/delete/">pipeline delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsdeploy" href="/copilot-demo-docs/docs/commands/deploy/">deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsversion" href="/copilot-demo-docs/docs/commands/version/">version</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandscompletion" href="/copilot-demo-docs/docs/commands/completion/">completion</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+    </nav>
+</div>
+
+
+
+
+                </div>
+                <main class="col-12 col-md-9 col-xl-9 pl-md-5 documentation" role="main">
+                    
+  
+
+                    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/manifests/">Manifests</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/manifests/backend-service/">Backend Service</a>
+</li>
+
+	</ol>
+</nav	>
+
+                    
+<div class="td-content">
+	<h1>Backend Service</h1>
+    
+	       
+	<p>List of all available properties for a <code>'Backend Service'</code> manifest.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># Your service name will be used in naming your resources like log groups, ECS services, etc.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>api<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># Your service is reachable at &#34;http://{{.Name}}.${COPILOT_SERVICE_DISCOVERY_ENDPOINT}:{{.Image.Port}}&#34; but is not public.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Backend<span style="color:#f8f8f8;text-decoration:underline"> </span>App<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Path to your service&#39;s Dockerfile.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">build</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>./api/Dockerfile<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Port exposed through your container to route traffic to it.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">8080</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#Optional. Configuration for your container healthcheck.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">healthcheck</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The command the container runs to determine if it&#39;s healthy.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">command</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;CMD-SHELL&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;curl -f http://localhost:8080 || exit 1&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">interval</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>10s<span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># Time period between healthchecks. Default is 10 if omitted.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">retries</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Number of times to retry before container is deemed unhealthy. Default is 2 if omitted.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">timeout</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>5s<span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#8f5902;font-style:italic"># How long to wait before considering the healthcheck failed. Default is 5s if omitted.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">start_period</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>0s<span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. Default is 0s if omitted.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># Number of CPU units for the task.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">256</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># Amount of memory in MiB used by the task.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">512</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># Number of tasks that should be running in your service.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">count</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Optional. Pass environment variables as key value pairs.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">LOG_LEVEL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>info<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                      </span><span style="color:#8f5902;font-style:italic"># Optional. Pass secrets from AWS Systems Manager (SSM) Parameter Store.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">GITHUB_TOKEN</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>GITHUB_TOKEN<span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># The key is the name of the environment variable, the value is the name of the SSM      parameter.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># Optional. You can override any of the values defined above by environment.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">test</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">count</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">               </span><span style="color:#8f5902;font-style:italic"># Number of tasks to run for the &#34;test&#34; environment.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 1, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/862d399b8d95b7a80ec75803566a03e6b01cebc8">docs: add content upto commands (862d399)</a>
+</div>
+</div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/copilot-demo-docs/js/main.min.a822434404cc19434f6eed64670a77da5565d2558b969d22c01066e2b199cef4.js" integrity="sha256-qCJDRATMGUNPbu1kZwp32lVl0lWLlp0iwBBm4rGZzvQ=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

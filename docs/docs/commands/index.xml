@@ -1,0 +1,173 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Copilot CLI – Commands</title>
+    <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/</link>
+    <description>Recent content in Commands on AWS Copilot CLI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: init</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/init/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot init&lt;/code&gt; is your starting point if you want to deploy your container app on Amazon ECS. Run it within a directory with your Dockerfile, and &lt;code&gt;init&lt;/code&gt; will ask you questions about your application so we can get it up and running quickly.&lt;/p&gt;
+&lt;p&gt;After you answer all the questions, &lt;code&gt;copilot init&lt;/code&gt; will set up an ECR repository for you and ask you if you&amp;rsquo;d like to deploy. If you opt to deploy, it&amp;rsquo;ll create a new &lt;code&gt;test&lt;/code&gt; environment (complete with a networking stack and roles), build your Dockerfile, push it to Amazon ECR, and deploy your service.&lt;/p&gt;
+&lt;p&gt;If you have an existing app, and want to add another service to that app, you can run &lt;code&gt;copilot init&lt;/code&gt; - and you&amp;rsquo;ll be prompted to select an existing app to add your app to.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;p&gt;Like all commands in the copilot CLI, if you don&amp;rsquo;t provide required flags, we&amp;rsquo;ll prompt you for all the information we need to get you going. You can skip the prompts by providing information via flags:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;  -a, --app string          Name of the application.
+      --deploy              Deploy your service to a &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt; environment.
+  -d, --dockerfile string   Path to the Dockerfile.
+  -h, --help                &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; init
+      --port uint16         Optional. The port on which your service listens.
+      --profile string      Name of the profile. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  -s, --svc string          Name of the service.
+  -t, --svc-type string     Type of service to create. Must be one of:
+                            &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Load Balanced Web Service&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Backend Service&amp;#34;&lt;/span&gt;
+      --tag string          Optional. The service&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s image tag.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/init-no-deploy.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: app</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Commands for applications.&lt;br&gt;
+Applications are a collection of services and environments.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: env</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Commands for environments.&lt;br&gt;
+Environments are deployment stages shared between services.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: svc</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/svc/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Commands for services.&lt;br&gt;
+Services are long-running Amazon ECS services.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: pipeline</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/pipeline/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/pipeline/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Commands for pipelines.&lt;br&gt;
+Continuous delivery pipelines to release services.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: deploy</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/deploy/</guid>
+      <description>
+        
+        
+        &lt;pre&gt;&lt;code&gt;$ copilot deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This command is an alias for &lt;a href=&#34;docs/commands/svc/deploy&#34;&gt;&lt;code&gt;copilot svc deploy&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: version</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/version/</guid>
+      <description>
+        
+        
+        &lt;pre&gt;&lt;code&gt;$ copilot version [flags]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot version&lt;/code&gt; prints the version of the CLI along with the target operating system it was built for.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help   &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: completion</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/completion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/completion/</guid>
+      <description>
+        
+        
+        &lt;pre&gt;&lt;code&gt;$ copilot completion [shell] [flags]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot completion&lt;/code&gt; prints shell completion code for bash or zsh. The code must be evaluated to provide interactive completion of commands.&lt;/p&gt;
+&lt;p&gt;See the help menu for instructions on how to setup auto-completion for your respective shell.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help   &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; completion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Install zsh completion.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;copilot completion zsh&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+$ copilot completion zsh &amp;gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;fpath&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[1]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/_copilot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# to autoload on startup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install bash completion on macOS using homebrew.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ brew install bash-completion   &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# if running 3.2&lt;/span&gt;
+$ brew install bash-completion@2 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# if running Bash 4.1+&lt;/span&gt;
+$ copilot completion bash &amp;gt; /usr/local/etc/bash_completion.d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install bash completion on linux&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; &amp;lt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;copilot completion bash&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+$ copilot completion bash &amp;gt; copilot.sh
+$ sudo mv copilot.sh /etc/bash_completion.d/copilot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

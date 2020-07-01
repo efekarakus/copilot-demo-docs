@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Copilot CLI – Service types</title>
-    <link>/copilot-demo-docs/docs/service-types/</link>
+    <link>https://efekarakus.github.io/copilot-demo-docs/docs/service-types/</link>
     <description>Recent content in Service types on AWS Copilot CLI</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/copilot-demo-docs/docs/service-types/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://efekarakus.github.io/copilot-demo-docs/docs/service-types/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,43 +15,50 @@
     
     <item>
       <title>Docs: Load Balanced Web Service</title>
-      <link>/copilot-demo-docs/docs/service-types/lb-web-service/</link>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/copilot-demo-docs/docs/service-types/lb-web-service/</guid>
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</guid>
       <description>
         
         
         &lt;p&gt;An internet-facing service that&amp;rsquo;s behind a load balancer, orchestrated by Amazon ECS on AWS Fargate.&lt;/p&gt;
 &lt;h4 id=&#34;why&#34;&gt;Why&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Public&lt;/strong&gt;. Any service that needs to accept traffic from the public internet to perform an operation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Public&lt;/strong&gt;. Any application that needs to accept traffic from the public internet to perform an operation.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;common-use-cases&#34;&gt;Common use-cases&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Website&lt;/strong&gt;. Rendering a server-side website.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Public API&lt;/strong&gt;. A &amp;ldquo;front-end&amp;rdquo; API that fans-out to other backend services.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Website&lt;/strong&gt;. Rendering a server-side website.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Public API&lt;/strong&gt;. A &amp;ldquo;front-end&amp;rdquo; API app that fans-out to other backend applications.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
-&lt;img src=&#34;https://user-images.githubusercontent.com/879348/69385723-20d8af80-0c75-11ea-9521-ddd361a0cf64.png&#34; class=&#34;img-fluid&#34;&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/879348/86045951-39762880-ba01-11ea-9a47-fc9278600154.png&#34; class=&#34;img-fluid&#34;&gt;
       </description>
     </item>
     
     <item>
       <title>Docs: Backend Service</title>
-      <link>/copilot-demo-docs/docs/service-types/backend-service/</link>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/copilot-demo-docs/docs/service-types/backend-service/</guid>
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</guid>
       <description>
         
         
-        &lt;p&gt;A service that&amp;rsquo;s not reachable from the internet, but can be reached with &lt;a href=&#34;/copilot-demo-docs/docs/develop/service-discovery/&#34;&gt;service discovery&lt;/a&gt; from your other services.&lt;/p&gt;
+        &lt;p&gt;A service that&amp;rsquo;s not reachable from the internet, but can be reached with &lt;a href=&#34;docs/developing/service-discovery&#34;&gt;service discovery&lt;/a&gt; from your other services.&lt;/p&gt;
 &lt;h4 id=&#34;why&#34;&gt;Why&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Privacy&lt;/strong&gt;. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them.
-You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt;. If you need to migrate a service to a new major version, then a backend service will allow you to seamless migrate traffic from your &amp;ldquo;frontend&amp;rdquo; service to the new version.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Privacy&lt;/strong&gt;. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across services.
+You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt;. If you need to migrate a service to a new major version, then a backend service will allow you to seamless migrate traffic from your &amp;ldquo;frontend&amp;rdquo; service to the new version.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;common-use-cases&#34;&gt;Common use-cases&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;APIs&lt;/strong&gt;. Any internal API service.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;APIs&lt;/strong&gt;. Any internal API service.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
-&lt;img src=&#34;https://user-images.githubusercontent.com/879348/78615432-5f3ac980-7826-11ea-9c03-ff0e6866152c.png&#34; class=&#34;img-fluid&#34;&gt;
-
+&lt;img src=&#34;https://user-images.githubusercontent.com/879348/86046929-e8673400-ba02-11ea-8676-addd6042e517.png&#34; class=&#34;img-fluid&#34;&gt;
       </description>
     </item>
     

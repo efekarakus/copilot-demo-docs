@@ -1,0 +1,103 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Copilot CLI – env</title>
+    <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/</link>
+    <description>Recent content in env on AWS Copilot CLI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: env init</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/init/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env init &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot env init&lt;/code&gt; creates a new &lt;a href=&#34;docs/concepts/environments&#34;&gt;environment&lt;/a&gt; where your services will live.&lt;/p&gt;
+&lt;p&gt;After you answer the questions, the CLI creates the common infrastructure that&amp;rsquo;s shared between your services such as a VPC, an Application Load Balancer, and an ECS Cluster.&lt;/p&gt;
+&lt;p&gt;You create environments using a &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html&#34;&gt;named profile&lt;/a&gt; to specify which AWS Account and Region you&amp;rsquo;d like the environment to be in.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;p&gt;Like all commands in the AWS Copilot CLI, if you don&amp;rsquo;t provide required flags, we&amp;rsquo;ll prompt you for all the information we need to get you going. You can skip the prompts by providing information via flags:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-h, --help             help for init
+-n, --name string      Name of the environment.
+    --prod             If the environment contains production services.
+    --profile string   Name of the profile.
+-a, --app string       Name of the application.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Creates a test environment in your &amp;ldquo;default&amp;rdquo; AWS profile.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env init --name &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; --profile default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Creates a prod-iad environment using your &amp;ldquo;prod-admin&amp;rdquo; AWS profile.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env init --name prod-iad --profile prod-admin --prod
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/env-init.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: env ls</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/ls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/ls/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env ls &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot env ls&lt;/code&gt; lists all the environments in your application.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help   &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ls
+    --json   Optional. Outputs in JSON format.
+-a, --app string   Name of the application.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can use the &lt;code&gt;--json&lt;/code&gt; flag if you&amp;rsquo;d like to programmatically parse the results.&lt;/p&gt;
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Lists all the environments for the frontend application.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env ls -a frontend
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/env-ls.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: env delete</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/env/delete/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env delete &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot env delete&lt;/code&gt; deletes an environment from your application. If there are running applications in your environment, you first need to run &lt;a href=&#34;https://github.com/aws/copilot-cli/wiki/svc-delete-command&#34;&gt;&lt;code&gt;copilot svc delete&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After you answer the questions, you should see the AWS CloudFormation stack for your environment gone.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help             &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; delete
+-n, --name string      Name of the environment.
+    --profile string   Name of the profile.
+    --yes              Skips confirmation prompt.
+-a, --app string       Name of the application.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Delete the &amp;ldquo;test&amp;rdquo; environment.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env delete --name &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; --profile default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Delete the &amp;ldquo;test&amp;rdquo; environment without prompting.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env delete --name &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; --profile default --yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

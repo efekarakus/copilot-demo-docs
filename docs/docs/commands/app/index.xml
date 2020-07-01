@@ -1,0 +1,125 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Copilot CLI – app</title>
+    <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/</link>
+    <description>Recent content in app on AWS Copilot CLI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: app init</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/init/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/init/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app init &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot app init&lt;/code&gt; creates a new &lt;a href=&#34;docs/concepts/applications&#34;&gt;application&lt;/a&gt; within the directory that will contain your service(s).&lt;/p&gt;
+&lt;p&gt;After you answer the questions, the CLI creates AWS Identity and Access Management roles to manage
+the &lt;a href=&#34;docs/concepts/applications#release-infrastructure&#34;&gt;release infrastructure&lt;/a&gt; for your services. You&amp;rsquo;ll also see a new sub-directory created under your working directory: &lt;code&gt;copilot/&lt;/code&gt;. The &lt;code&gt;copilot&lt;/code&gt; directory will hold the manifest files and additional infrastructure for your services.&lt;/p&gt;
+&lt;p&gt;Typically, you don&amp;rsquo;t need to run &lt;code&gt;app init&lt;/code&gt; (&lt;code&gt;init&lt;/code&gt; does all the same work) unless you want to use a custom domain name or AWS tags.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;p&gt;Like all commands in the Copilot CLI, if you don&amp;rsquo;t provide required flags, we&amp;rsquo;ll prompt you for all the information we need to get you going. You can skip the prompts by providing information via flags:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;      --domain string                  Optional. Your existing custom domain name.
+  -h, --help                           &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; init
+      --resource-tags stringToString   Optional. Labels with a key and value separated with commas.
+                                       Allows you to categorize resources. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;--domain&lt;/code&gt; flag allows you to specify a domain name registered with Amazon Route 53 in your app&amp;rsquo;s account. This will allow all the services in your app to share the same domain name. You&amp;rsquo;ll be able to access your services at: &lt;a href=&#34;https://%7BsvcName%7D.%7BenvName%7D.%7BappName%7D.%7Bdomain%7D&#34;&gt;https://{svcName}.{envName}.{appName}.{domain}&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;--resource-tags&lt;/code&gt; flags allows you to add your custom &lt;a href=&#34;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html&#34;&gt;tags&lt;/a&gt; to all the resources in your app.
+For example: &lt;code&gt;$ copilot app init --resource-tags department=MyDept,team=MyTeam&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Create a new application named &amp;ldquo;my-app&amp;rdquo;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app init my-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a new application with an existing domain name in Amazon Route53.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app init --domain example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create a new application with resource tags.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app init --resource-tags &lt;span style=&#34;color:#000&#34;&gt;department&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyDept,team&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyTeam
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/app-init.edited.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: app ls</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/ls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/ls/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app ls &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot app ls&lt;/code&gt; lists all the Copilot applications in your account.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help             &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;List all the applications in your account and region.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/app-ls.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: app show</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/show/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/show/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app show &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot app show&lt;/code&gt; shows configuration, environments and services for an application.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;-h, --help          &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; show
+    --json          Optional. Outputs in JSON format.
+-n, --name string   Name of the application.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Shows info about the application &amp;ldquo;my-app&amp;rdquo;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app show -n my-app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-look-like&#34;&gt;What does it look like?&lt;/h3&gt;
+&lt;img class=&#34;img-fluid&#34; src=&#34;https://raw.githubusercontent.com/kohidave/copilot-demos/master/app-show.svg?sanitize=true&#34; style=&#34;margin-bottom: 20px;&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: app delete</title>
+      <link>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://efekarakus.github.io/copilot-demo-docs/docs/commands/app/delete/</guid>
+      <description>
+        
+        
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app delete &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;flags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;what-does-it-do&#34;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;copilot app delete&lt;/code&gt; deletes all resources associated with an application.&lt;/p&gt;
+&lt;h3 id=&#34;what-are-the-flags&#34;&gt;What are the flags?&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;    --env-profiles stringToString   Optional. Environments and the profile to use to delete the environment. &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[])&lt;/span&gt;
+-h, --help                          &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; delete
+    --yes                           Skips confirmation prompt.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;p&gt;Force delete the application with environments &amp;ldquo;test&amp;rdquo; and &amp;ldquo;prod&amp;rdquo;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app delete --yes --env-profiles &lt;span style=&#34;color:#000&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;default,prod&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;prod-profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

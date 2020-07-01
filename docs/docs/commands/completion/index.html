@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <base href="https://efekarakus.github.io/copilot-demo-docs/">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.72.0" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/copilot-demo-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/copilot-demo-docs/favicons/android-192x192.png" sizes="192x192">
+
+<title>completion | AWS Copilot CLI</title><meta property="og:title" content="completion" />
+<meta property="og:description" content="$ copilot completion [shell] [flags] What does it do? copilot completion prints shell completion code for bash or zsh. The code must be evaluated to provide interactive completion of commands.
+See the help menu for instructions on how to setup auto-completion for your respective shell.
+What are the flags? -h, --help help for completion Examples Install zsh completion.
+$ source &lt;(copilot completion zsh) $ copilot completion zsh &gt; &#34;${fpath[1]}/_copilot&#34; # to autoload on startup Install bash completion on macOS using homebrew." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://efekarakus.github.io/copilot-demo-docs/docs/commands/completion/" />
+<meta property="article:modified_time" content="2020-07-01T16:36:12-07:00" /><meta property="og:site_name" content="AWS Copilot CLI" />
+<meta itemprop="name" content="completion">
+<meta itemprop="description" content="$ copilot completion [shell] [flags] What does it do? copilot completion prints shell completion code for bash or zsh. The code must be evaluated to provide interactive completion of commands.
+See the help menu for instructions on how to setup auto-completion for your respective shell.
+What are the flags? -h, --help help for completion Examples Install zsh completion.
+$ source &lt;(copilot completion zsh) $ copilot completion zsh &gt; &#34;${fpath[1]}/_copilot&#34; # to autoload on startup Install bash completion on macOS using homebrew.">
+<meta itemprop="dateModified" content="2020-07-01T16:36:12-07:00" />
+<meta itemprop="wordCount" content="125">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="completion"/>
+<meta name="twitter:description" content="$ copilot completion [shell] [flags] What does it do? copilot completion prints shell completion code for bash or zsh. The code must be evaluated to provide interactive completion of commands.
+See the help menu for instructions on how to setup auto-completion for your respective shell.
+What are the flags? -h, --help help for completion Examples Install zsh completion.
+$ source &lt;(copilot completion zsh) $ copilot completion zsh &gt; &#34;${fpath[1]}/_copilot&#34; # to autoload on startup Install bash completion on macOS using homebrew."/>
+
+
+
+
+
+<link rel="preload" href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" as="style">
+<link href="/copilot-demo-docs/scss/main.min.e349d6b0a44ff11691e492f86e5f719e1bd4f6284ea2f8565f6d5d3c8e2c5ede.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body class="td-page">
+<header>
+    
+<nav class="navbar flex-column flex-md-row td-navbar" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a class="navbar-brand" href="/copilot-demo-docs/">
+                    <span class="navbar-logo"></span><span class="site-title">$ copilot</span>
+                </a>
+                <div class="main-navbar" >
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        
+                        
+                            <li class="nav-item">
+                                
+                                
+                                    
+                                
+                                
+                                
+                                <a class="nav-link active" href="/copilot-demo-docs/docs/" ><span class="active">Documentation</span></a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="navbar-nav d-none d-lg-block">
+</div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+</header>
+<div class="container-fluid td-outer">
+    <div class="container">
+        <div class="td-main">
+            <div class="row flex-xl-nowrap">
+                <div class="col-12 col-md-3 col-xl-3 td-sidebar d-print-none" style="padding-top: 5.5rem;">
+                    
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+        <form class="td-sidebar__search d-flex align-items-center p-0">
+            
+            <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+            </button>
+        </form>
+    <nav class="collapse td-sidebar-nav pl-4" id="td-section-nav">
+        
+        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocs">
+                
+                
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsinstallation">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsgetting-started">
+                
+                
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsconcepts">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsapplications" href="/copilot-demo-docs/docs/concepts/applications/">Applications</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsenvironments" href="/copilot-demo-docs/docs/concepts/environments/">Environments</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptsservices" href="/copilot-demo-docs/docs/concepts/services/">Services</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsconceptspipelines" href="/copilot-demo-docs/docs/concepts/pipelines/">Pipelines</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/service-types/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service types</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsservice-types">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typeslb-web-service" href="/copilot-demo-docs/docs/service-types/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsservice-typesbackend-service" href="/copilot-demo-docs/docs/service-types/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/manifests/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Manifests</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsmanifests">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestslb-web-service" href="/copilot-demo-docs/docs/manifests/lb-web-service/">Load Balanced Web Service</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsmanifestsbackend-service" href="/copilot-demo-docs/docs/manifests/backend-service/">Backend Service</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/developing/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Developing</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocsdeveloping">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingenv-vars" href="/copilot-demo-docs/docs/developing/env-vars/">Environment Variables</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsecrets" href="/copilot-demo-docs/docs/developing/secrets/">Using Secrets</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingservice-discovery" href="/copilot-demo-docs/docs/developing/service-discovery/">Service Discovery</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingaddons" href="/copilot-demo-docs/docs/developing/addons/">Additional AWS Resources</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocsdevelopingsidecars" href="/copilot-demo-docs/docs/developing/sidecars/">Sidecars</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Commands</a>
+        </li>
+        <ul>
+            <li class="collapse show" id="copilot-demo-docsdocscommands">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsinit" href="/copilot-demo-docs/docs/commands/init/">init</a>
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">app</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsapp">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappinit" href="/copilot-demo-docs/docs/commands/app/init/">app init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappls" href="/copilot-demo-docs/docs/commands/app/ls/">app ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappshow" href="/copilot-demo-docs/docs/commands/app/show/">app show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsappdelete" href="/copilot-demo-docs/docs/commands/app/delete/">app delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/env/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">env</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandsenv">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvinit" href="/copilot-demo-docs/docs/commands/env/init/">env init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvls" href="/copilot-demo-docs/docs/commands/env/ls/">env ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsenvdelete" href="/copilot-demo-docs/docs/commands/env/delete/">env delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/svc/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">svc</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandssvc">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcinit" href="/copilot-demo-docs/docs/commands/svc/init/">svc init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcls" href="/copilot-demo-docs/docs/commands/svc/ls/">svc ls</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcshow" href="/copilot-demo-docs/docs/commands/svc/show/">svc show</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvclogs" href="/copilot-demo-docs/docs/commands/svc/logs/">svc logs</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcstatus" href="/copilot-demo-docs/docs/commands/svc/status/">svc status</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcpackage" href="/copilot-demo-docs/docs/commands/svc/package/">svc package</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdeploy" href="/copilot-demo-docs/docs/commands/svc/deploy/">svc deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandssvcdelete" href="/copilot-demo-docs/docs/commands/svc/delete/">svc delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+    
+    
+    
+    
+    
+    
+    <ul class="td-sidebar-nav__section pr-md-3">
+        <li class="td-sidebar-nav__section-title">
+            <a  href="/copilot-demo-docs/docs/commands/pipeline/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">pipeline</a>
+        </li>
+        <ul>
+            <li class="collapse " id="copilot-demo-docsdocscommandspipeline">
+                
+                
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineinit" href="/copilot-demo-docs/docs/commands/pipeline/init/">pipeline init</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelineupdate" href="/copilot-demo-docs/docs/commands/pipeline/update/">pipeline update</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandspipelinedelete" href="/copilot-demo-docs/docs/commands/pipeline/delete/">pipeline delete</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsdeploy" href="/copilot-demo-docs/docs/commands/deploy/">deploy</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page " id="m-copilot-demo-docsdocscommandsversion" href="/copilot-demo-docs/docs/commands/version/">version</a>
+                    
+                
+                    
+                        
+                        
+                        <a class="td-sidebar-link td-sidebar-link__page  active" id="m-copilot-demo-docsdocscommandscompletion" href="/copilot-demo-docs/docs/commands/completion/">completion</a>
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+                    
+                
+            </li>
+        </ul>
+    </ul>
+
+    </nav>
+</div>
+
+
+
+
+                </div>
+                <main class="col-12 col-md-9 col-xl-9 pl-md-5 documentation" role="main">
+                    
+  
+
+                    <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/">Commands</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="https://efekarakus.github.io/copilot-demo-docs/docs/commands/completion/">completion</a>
+</li>
+
+	</ol>
+</nav	>
+
+                    
+<div class="td-content">
+	<h1>completion</h1>
+    
+	       
+	<pre><code>$ copilot completion [shell] [flags]
+</code></pre><h3 id="what-does-it-do">What does it do?</h3>
+<p><code>copilot completion</code> prints shell completion code for bash or zsh. The code must be evaluated to provide interactive completion of commands.</p>
+<p>See the help menu for instructions on how to setup auto-completion for your respective shell.</p>
+<h3 id="what-are-the-flags">What are the flags?</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-h, --help   <span style="color:#204a87">help</span> <span style="color:#204a87;font-weight:bold">for</span> completion
+</code></pre></div><h3 id="examples">Examples</h3>
+<p>Install zsh completion.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#204a87">source</span> &lt;<span style="color:#ce5c00;font-weight:bold">(</span>copilot completion zsh<span style="color:#ce5c00;font-weight:bold">)</span>
+$ copilot completion zsh &gt; <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">fpath</span><span style="color:#000;font-weight:bold">[1]</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">/_copilot&#34;</span> <span style="color:#8f5902;font-style:italic"># to autoload on startup</span>
+</code></pre></div><p>Install bash completion on macOS using homebrew.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install bash-completion   <span style="color:#8f5902;font-style:italic"># if running 3.2</span>
+$ brew install bash-completion@2 <span style="color:#8f5902;font-style:italic"># if running Bash 4.1+</span>
+$ copilot completion bash &gt; /usr/local/etc/bash_completion.d
+</code></pre></div><p>Install bash completion on linux</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#204a87">source</span> &lt;<span style="color:#ce5c00;font-weight:bold">(</span>copilot completion bash<span style="color:#ce5c00;font-weight:bold">)</span>
+$ copilot completion bash &gt; copilot.sh
+$ sudo mv copilot.sh /etc/bash_completion.d/copilot
+</code></pre></div>
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified July 1, 2020: <a  href="https://github.com/aws/amazon-ecs-cli-v2/commit/92eacc9387964b146fb8882b291aa19eb6466790">docs: add all existing posts to site (92eacc9)</a>
+</div>
+</div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/copilot-demo-docs/js/main.min.a822434404cc19434f6eed64670a77da5565d2558b969d22c01066e2b199cef4.js" integrity="sha256-qCJDRATMGUNPbu1kZwp32lVl0lWLlp0iwBBm4rGZzvQ=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
