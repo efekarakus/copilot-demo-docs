@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Copilot CLI – Service types</title>
-    <link>/copilot-demo-docs/docs/service-types/</link>
+    <link>efekarakus.github.io/copilot-demo-docs/docs/service-types/</link>
     <description>Recent content in Service types on AWS Copilot CLI</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/copilot-demo-docs/docs/service-types/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="efekarakus.github.io/copilot-demo-docs/docs/service-types/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +15,10 @@
     
     <item>
       <title>Docs: Load Balanced Web Service</title>
-      <link>/copilot-demo-docs/docs/service-types/lb-web-service/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/copilot-demo-docs/docs/service-types/lb-web-service/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</guid>
       <description>
         
         
@@ -35,14 +35,14 @@
     
     <item>
       <title>Docs: Backend Service</title>
-      <link>/copilot-demo-docs/docs/service-types/backend-service/</link>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/copilot-demo-docs/docs/service-types/backend-service/</guid>
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</guid>
       <description>
         
         
-        &lt;p&gt;A service that&amp;rsquo;s not reachable from the internet, but can be reached with &lt;a href=&#34;/copilot-demo-docs/docs/develop/service-discovery/&#34;&gt;service discovery&lt;/a&gt; from your other services.&lt;/p&gt;
+        &lt;p&gt;A service that&amp;rsquo;s not reachable from the internet, but can be reached with &lt;a href=&#34;efekarakus.github.io/copilot-demo-docs/docs/develop/service-discovery/&#34;&gt;service discovery&lt;/a&gt; from your other services.&lt;/p&gt;
 &lt;h4 id=&#34;why&#34;&gt;Why&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Privacy&lt;/strong&gt;. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them.
 You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.&lt;/p&gt;

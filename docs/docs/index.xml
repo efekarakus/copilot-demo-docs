@@ -1,16 +1,440 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS Copilot CLI – AWS Copilot CLI</title>
-    <link>/copilot-demo-docs/</link>
-    <description>Recent content on AWS Copilot CLI</description>
+    <title>AWS Copilot CLI – Documentation</title>
+    <link>efekarakus.github.io/copilot-demo-docs/docs/</link>
+    <description>Recent content in Documentation on AWS Copilot CLI</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	  <atom:link href="/copilot-demo-docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="efekarakus.github.io/copilot-demo-docs/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
+        
       
     
+    
+    <item>
+      <title>Docs: Load Balanced Web Service</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/service-types/lb-web-service/</guid>
+      <description>
+        
+        
+        &lt;p&gt;An internet-facing service that&amp;rsquo;s behind a load balancer, orchestrated by Amazon ECS on AWS Fargate.&lt;/p&gt;
+&lt;h4 id=&#34;why&#34;&gt;Why&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Public&lt;/strong&gt;. Any service that needs to accept traffic from the public internet to perform an operation.&lt;/p&gt;
+&lt;h4 id=&#34;common-use-cases&#34;&gt;Common use-cases&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Website&lt;/strong&gt;. Rendering a server-side website.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Public API&lt;/strong&gt;. A &amp;ldquo;front-end&amp;rdquo; API that fans-out to other backend services.&lt;/p&gt;
+&lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/879348/69385723-20d8af80-0c75-11ea-9521-ddd361a0cf64.png&#34; class=&#34;img-fluid&#34;&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Applications</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/applications/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/applications/</guid>
+      <description>
+        
+        
+        &lt;p&gt;An application is a group of related services, environments, and pipelines. Whether you have one service that does everything or a constelation of micro-services, Copilot organizes them and the environments they&amp;rsquo;re deployed to into an &amp;ldquo;application&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s walk through an example. We want to build a voting app which needs to collect votes and aggregate the results.&lt;/p&gt;
+&lt;p&gt;To set up our vote app with two services, we can run &lt;code&gt;copilot init&lt;/code&gt; twice. The first time we run &lt;code&gt;init&lt;/code&gt;, we&amp;rsquo;ll be asked what we should call the application this service will belong to. Since we&amp;rsquo;re trying to build a voting system, we can call our application &amp;ldquo;vote&amp;rdquo; and our first service &amp;ldquo;collector&amp;rdquo;. The next time we run &lt;code&gt;init&lt;/code&gt;, we&amp;rsquo;ll be asked if we want to add our new service to the existing “vote” app, and we’ll name the new service &amp;ldquo;aggregator&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Your application configuration (which services and environments belong to it) is stored in your AWS account, so any other users in your account will be able to develop on the “vote&amp;rdquo; app as well. This means that you can have a teammate work on one service while you develop the other.&lt;/p&gt;
+&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/app-concept.png&#34; class=&#34;img-fluid&#34;&gt;
+&lt;h2 id=&#34;creating-an-app&#34;&gt;Creating an App&lt;/h2&gt;
+&lt;p&gt;To set up an application, you can just run &lt;code&gt;copilot init&lt;/code&gt;. You&amp;rsquo;ll be asked if you want to set up an app or choose an use app.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once you&amp;rsquo;ve created an application, Copilot stores that application in SSM Parameter store in your AWS account. The account used to set up your application is known as the &amp;ldquo;applicaiton account&amp;rdquo;. This is where your app&amp;rsquo;s configuration lives, and anyone who has access to this account can use this app.&lt;/p&gt;
+&lt;p&gt;All resources created within this application will be tagged with the &lt;code&gt;copilot-app&lt;/code&gt; &lt;a href=&#34;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html&#34;&gt;aws resource tag&lt;/a&gt;. This helps you know which app resources in your account belong to.&lt;/p&gt;
+&lt;p&gt;The name of your applicaiton has to be unique within your account (even across region).&lt;/p&gt;
+&lt;h3 id=&#34;additional-app-configurations&#34;&gt;Additional App Configurations&lt;/h3&gt;
+&lt;p&gt;You can also provide more granular configuration for your application by running &lt;code&gt;copilot app init&lt;/code&gt;. This includes options to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tag all application, service and environment resources with an additional set of &lt;a href=&#34;https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html&#34;&gt;aws resource tags&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use a custom domain name for Load Balanced services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app init                             &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --domain my-awesome-app.aws                  &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --resource-tags &lt;span style=&#34;color:#000&#34;&gt;department&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyDept,team&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;MyTeam
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;app-infrastructure&#34;&gt;App Infrastructure&lt;/h2&gt;
+&lt;p&gt;While the bulk of the infrastructure Copilot provisions is specific to an environment and service, there are some application-wide resources, as well.&lt;/p&gt;
+&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/app-infra.png&#34; class=&#34;img-fluid&#34;&gt;
+&lt;h3 id=&#34;ecr-repositories&#34;&gt;ECR Repositories&lt;/h3&gt;
+&lt;p&gt;ECR Repositories are regional resources which store your service images. Each service has its own ECR Repository per region in your app.&lt;/p&gt;
+&lt;p&gt;In the above diagram, the app has several environments spread across three regions. Each of those regions has its own ECR repository for every service in your app. In this case, there are three services.&lt;/p&gt;
+&lt;p&gt;Every time you add a service, we create an ECR Repository in every region. We do this to maintain region isolation (if one region goes down, environments in other region won&amp;rsquo;t be affected) and to reduce cross region data transfer costs.&lt;/p&gt;
+&lt;p&gt;These ECR Repositories all live within your app&amp;rsquo;s account (not the environment accounts) - and have policies which allow your environment accounts to pull from them.&lt;/p&gt;
+&lt;h3 id=&#34;release-infrastructure&#34;&gt;Release Infrastructure&lt;/h3&gt;
+&lt;p&gt;For every region represented in your app, we create a KMS Key and an S3 bucket. These resources are used by CodePipeline to enable cross region and cross account deployments. All Pipelines in your app share these same resources.&lt;/p&gt;
+&lt;p&gt;Similar to the ECR Repositories, the S3 bucket and KMS keys have policies which allow for all of your environments, even in other accounts, to read encrypted deployment artifacts. This makes your cross-account, cross-region CodePipelines possible.&lt;/p&gt;
+&lt;h2 id=&#34;digging-into-your-app&#34;&gt;Digging into your App&lt;/h2&gt;
+&lt;p&gt;Now that we&amp;rsquo;ve set up an app, we can check on it using Copilot. Below are a few common ways to check in on your app.&lt;/p&gt;
+&lt;h3 id=&#34;what-applications-are-in-my-account&#34;&gt;What applications are in my account?&lt;/h3&gt;
+&lt;p&gt;To see all the apps in your current account and region you can run &lt;code&gt;copilot app ls&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app ls
+vote
+ecs-kudos
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;whats-in-my-application&#34;&gt;What&amp;rsquo;s in my application?&lt;/h3&gt;
+&lt;p&gt;Running &lt;code&gt;copilot app show&lt;/code&gt; will show you a summary of your application, including all the services and environments in your app.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot app show
+About
+
+  Name              vote
+  URI               vote-app.aws
+
+Environments
+
+  Name              AccountID           Region
+  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;              &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;000000000000&lt;/span&gt;        us-east-1
+
+Services
+
+  Name              Type
+  collector         Load Balanced Web Service
+  aggregator        Backend Service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Backend Service</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/service-types/backend-service/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A service that&amp;rsquo;s not reachable from the internet, but can be reached with &lt;a href=&#34;efekarakus.github.io/copilot-demo-docs/docs/develop/service-discovery/&#34;&gt;service discovery&lt;/a&gt; from your other services.&lt;/p&gt;
+&lt;h4 id=&#34;why&#34;&gt;Why&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Privacy&lt;/strong&gt;. If your services are always accessible publicly, then you need to duplicate your authentication and authorization mechanisms across them.
+You can remove this duplication by keeping your services private and moving the auth mechanisms into a single “frontend” load balanced web service that forwards requests to your backend services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encapsulation&lt;/strong&gt;. If you need to migrate a service to a new major version, then a backend service will allow you to seamless migrate traffic from your &amp;ldquo;frontend&amp;rdquo; service to the new version.&lt;/p&gt;
+&lt;h4 id=&#34;common-use-cases&#34;&gt;Common use-cases&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;APIs&lt;/strong&gt;. Any internal API service.&lt;/p&gt;
+&lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/879348/78615432-5f3ac980-7826-11ea-9c03-ff0e6866152c.png&#34; class=&#34;img-fluid&#34;&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Environments</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/environments/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/environments/</guid>
+      <description>
+        
+        
+        &lt;p&gt;When you first run &lt;code&gt;copilot init&lt;/code&gt; you&amp;rsquo;re asked if you want to create a &lt;em&gt;test&lt;/em&gt; environment. This test environment contains all the AWS resources to provision a secure network (VPC, subnets, security groups and more) as well as other resources that are meant to be shared between multiple services like an Application Load Balancer or an ECS Cluster. When you deploy your service into your &lt;em&gt;test&lt;/em&gt; environment, your service will use the &lt;em&gt;test&lt;/em&gt; environment&amp;rsquo;s network and resources. Your application can have multiple environments, and each will have its own networking and shared resources infrastructure.&lt;/p&gt;
+&lt;p&gt;While Copilot creates a test environment for you when you get started, it&amp;rsquo;s common to create a new, seperate environment for production. This production environment will be completly independent from the test environment, with its own networking stack and its own copy of services. By having both a test environment and a production environment, you can deploy changes to your test environment, validate them, then promote them to the production environment.&lt;/p&gt;
+&lt;p&gt;In the diagram below we have an application called &lt;em&gt;MyApp&lt;/em&gt; with two services, &lt;em&gt;API&lt;/em&gt; and &lt;em&gt;Backend&lt;/em&gt;. Those two services are deployed to the two environments, &lt;em&gt;test&lt;/em&gt; and &lt;em&gt;prod&lt;/em&gt;. You can see that in the &lt;em&gt;test&lt;/em&gt; environment, both services are running only one container while the &lt;em&gt;prod&lt;/em&gt; services have more containers running. Services can use different configurations depending on the environment they&amp;rsquo;re deployed in. For more check out the &lt;a href=&#34;developing/using-environment-variables&#34;&gt;using environment variables&lt;/a&gt; guide.&lt;/p&gt;
+&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/env-concept.png&#34; class=&#34;img-fluid&#34;&gt;
+&lt;h2 id=&#34;creating-an-environment&#34;&gt;Creating an Environment&lt;/h2&gt;
+&lt;p&gt;To create a new environment in your app, you can run &lt;code&gt;copilot env init&lt;/code&gt; from within your workspace. Copilot will ask you what you want to name this environment and what profile you&amp;rsquo;d like to use to bootstrap the environment. These profiles are AWS &lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html&#34;&gt;named profiles&lt;/a&gt; which are associated with a particular account and region. When you select one of these profiles, your environment will be created in whichever account and region that profile is associated with.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After you run &lt;code&gt;copilot env init&lt;/code&gt; you can watch as Copilot sets up all the environment resources, which can take a few minutes. Once all those resources are created, the environment will be linked back to the application account. This allows actors in the application account to manage the environment even without access to the environment account. This linking process also creates and configures new regional ECR repositories, if necessary.&lt;/p&gt;
+&lt;h3 id=&#34;deploying-a-service&#34;&gt;Deploying a Service&lt;/h3&gt;
+&lt;p&gt;When you first create a new environment, no services are deployed to it. To deploy a service run &lt;code&gt;copilot deploy&lt;/code&gt; from that service&amp;rsquo;s directory, and you&amp;rsquo;ll be prompted to select which environment to deploy to.&lt;/p&gt;
+&lt;h2 id=&#34;environment-infrastructure&#34;&gt;Environment Infrastructure&lt;/h2&gt;
+&lt;img src=&#34;efekarakus.github.io/copilot-demo-docs/docs/concepts/env-infrastructure.png&#34; class=&#34;img-fluid&#34;&gt;
+&lt;h3 id=&#34;vpc-and-networking&#34;&gt;VPC and Networking&lt;/h3&gt;
+&lt;p&gt;Each environment gets its own multi-AZ VPC. Your VPC is the network boundary of your environment, allowing the traffic you expect in and out, and blocking the rest. The VPCs Copilot creates are spread across two availability zones to help balance availability and cost - with each AZ getting a public and private subnet.&lt;/p&gt;
+&lt;p&gt;Your services are launched in the public subnets but can only be reached through your load balancer.&lt;/p&gt;
+&lt;h3 id=&#34;load-balancers-and-dns&#34;&gt;Load Balancers and DNS&lt;/h3&gt;
+&lt;p&gt;If you set up any service using one of the Load Balanced Service types, Copilot will set up an Application Load Balancer. All Load Balanced Web Services within an environment will share a load balancer by creating app specific listeners on it. Your load balancer is whitelisted to communicate with services in your VPC.&lt;/p&gt;
+&lt;p&gt;Optionally, when you set up an application, you can provide a domain name that you own and is registered in Route 53. If you provide Copilot with a domain name, each time you spin up an environment, we&amp;rsquo;ll create a subdomain environment-name.app-name.your-domain.com, provision an ACM cert, and bind it to your Application Load Balancer so it can use HTTPS.&lt;/p&gt;
+&lt;h2 id=&#34;digging-into-your-environment&#34;&gt;Digging into your Environment&lt;/h2&gt;
+&lt;p&gt;Now that we&amp;rsquo;ve spun up an environment, we can check on it using Copilot. Below are a few common ways to check in on your environment.&lt;/p&gt;
+&lt;h3 id=&#34;what-environments-are-part-of-my-app&#34;&gt;What environments are part of my app?&lt;/h3&gt;
+&lt;p&gt;To see all the environments in your application you can run &lt;code&gt;copilot env ls&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env ls
+&lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;
+production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;whats-in-your-environment&#34;&gt;What&amp;rsquo;s in your environment?&lt;/h3&gt;
+&lt;p&gt;Running &lt;code&gt;copilot env show&lt;/code&gt; will show you a summary of your environment. Here&amp;rsquo;s an example of the output you might see for our test environment. This output includes the the account and region the environment is in, the services deployed to that environment and the tag that all resources created in this environment will have. You can also provide an optional &lt;code&gt;--resources&lt;/code&gt; flag to see all AWS resources associated with this environment.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot env show --name &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;
+About
+
+  Name              &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;
+  Production        &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+  Region            us-west-2
+  Account ID        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;693652174720&lt;/span&gt;
+
+Services
+
+  Name              Type
+  ----              ----
+  api               Load Balanced Web Service
+  backend           Backend Service
+
+
+Tags
+
+  Key                  Value
+  ---                  -----
+  copilot-application  my-app
+  copilot-environment  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Services</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/services/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/services/</guid>
+      <description>
+        
+        
+        &lt;p&gt;One of the awesome things about containers is that once you&amp;rsquo;ve written your code, running it locally is as easy as typing  &lt;em&gt;docker run&lt;/em&gt;.
+Copilot makes running those same containers on AWS as easy as running &lt;em&gt;copilot init&lt;/em&gt;.
+Copilot will build your image, push it to Amazon ECR and set up all the infrastructure to run your service in a scalable and secure way.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-service&#34;&gt;Creating a Service&lt;/h2&gt;
+&lt;p&gt;Creating a service to run your containers on AWS can be done in a few ways. The easiest way is by running the &lt;em&gt;init&lt;/em&gt; command from the same directory as your Dockerfile.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You&amp;rsquo;ll be asked which application do you want this service to be a part of (or to create an application if there isn&amp;rsquo;t one). Copilot will then ask about the &lt;strong&gt;type&lt;/strong&gt; of service you&amp;rsquo;re trying to build.&lt;/p&gt;
+&lt;p&gt;After selecting a service type, Copilot will detect any health checks or exposed ports from your Dockerfile and ask if you&amp;rsquo;d like to deploy.&lt;/p&gt;
+&lt;h2 id=&#34;choosing-a-service-type&#34;&gt;Choosing a Service Type&lt;/h2&gt;
+&lt;p&gt;We mentioned before that Copilot will set up all the infrastructure your service needs to run. But how does it know what kind of infrastructure to use?&lt;/p&gt;
+&lt;p&gt;When you&amp;rsquo;re setting up a service, Copilot will ask you about what kind of service you want to build. Do you want your service to serve internet traffic? You can select a &lt;strong&gt;Load Balanced Web Service&lt;/strong&gt; and Copilot will provision an application load balancer, security groups, an ECS Service and run your service on Fargate.&lt;/p&gt;
+&lt;p&gt;If you want a service that can&amp;rsquo;t be accessed externally, but only from other services within your application, you can create a &lt;strong&gt;Backend Service&lt;/strong&gt;. Copilot will provision an ECS Service running on AWS Fargate, but won&amp;rsquo;t set up any internet-facing endpoints.&lt;/p&gt;
+&lt;p&gt;Currently there are a few service types supported:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Load Balanced Web Service&lt;/li&gt;
+&lt;li&gt;Backend Service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;config-and-the-manifest&#34;&gt;Config and the Manifest&lt;/h2&gt;
+&lt;p&gt;After you&amp;rsquo;ve run &lt;em&gt;copilot init&lt;/em&gt; you might have noticed that Copilot created a file called &lt;code&gt;manifest.yml&lt;/code&gt; in the copilot directory. This manifest file contains common configuration options for your service. While the exact set of options depends on the type of service you&amp;rsquo;re running, common ones include the resources allocated to your service (like memory and CPU), health checks, and environment variables.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at the manifest for a Load Balanced Web Service called &lt;em&gt;front-end&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;front-end&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Load&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Balanced&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Web&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Service&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Path to your service&amp;#39;s Dockerfile.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;./Dockerfile&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Port exposed through your container to route traffic to it.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;http&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Requests to this path will be forwarded to your service.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# To match all requests you can use the &amp;#34;/&amp;#34; path.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can specify a custom health check path. The default is &amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# healthcheck: &amp;#39;/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Number of CPU units for the task.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cpu&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Amount of memory in MiB used by the task.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;memory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;512&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Number of tasks that should be running in your service.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Optional fields for more advanced use-cases.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;variables&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Pass environment variables as key value pairs.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;LOG_LEVEL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;info&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#secrets:                         # Pass secrets from AWS Systems Manager (SSM) Parameter Store.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#  GITHUB_TOKEN: GH_SECRET_TOKEN  # The key is the name of the environment variable,&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                                  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# the value is the name of the SSM parameter.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# You can override any of the values defined above by environment.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;environments&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;prod&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Number of tasks to run for the &amp;#34;test&amp;#34; environment.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;image&#34;&gt;Image&lt;/h3&gt;
+&lt;p&gt;The image section contains just a few parameters, the location of the Dockerfile and the port exposed. For a Load Balanced Web Service, the port is where traffic is forwarded to. Copilot will auto-populate this field if there&amp;rsquo;s an &lt;code&gt;EXPOSE&lt;/code&gt; command in your Dockerfile.&lt;/p&gt;
+&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
+&lt;p&gt;The HTTP section is unique to the Load Balanced Web Service type. When a request comes to the load balancer, traffic will be fowraded to this service if the path matches &amp;lsquo;/&amp;rsquo; - meaning any traffic will be forwarded to this service. You could update this so that only traffic to the &lt;em&gt;front-end&lt;/em&gt; path would be routed to this service by updating the path to be &lt;code&gt;path: &#39;front-end&#39;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s also an optional health check path. This path is invoked every couple of seconds so that the load balancer can ensure your service is healthy. By default the health check path is &lt;code&gt;/&lt;/code&gt; - but this can be changed to anything.&lt;/p&gt;
+&lt;h3 id=&#34;scaling&#34;&gt;Scaling&lt;/h3&gt;
+&lt;p&gt;The next sectionin includes the resources allocated to your service. Load Balanced Web Services are run on AWS Fargate, meaning all you have to do is say how much CPU and memory your service needs. This section also includes how many coppies of your service you want up and running. By default, only one copy of your service is spun up, but that number can be increased to handle more load.&lt;/p&gt;
+&lt;h3 id=&#34;variables&#34;&gt;Variables&lt;/h3&gt;
+&lt;p&gt;The variable section includes environment variables that will be passed to your service. There are a number of environment variables that are passed in by default.&lt;/p&gt;
+&lt;h3 id=&#34;secrets&#34;&gt;Secrets&lt;/h3&gt;
+&lt;p&gt;The secrets section let&amp;rsquo;s you pass in secret values to your service as environment variables, securely. In this example, the environment variable &lt;code&gt;GITHUB_TOKEN&lt;/code&gt; will be set in your service and the value will be extracted from an AWS SSM Parameter named &lt;code&gt;GH_SECRET_TOKEN&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;environments&#34;&gt;Environments&lt;/h3&gt;
+&lt;p&gt;The environment section lets you overwrite any value in your manifest based on the environment you&amp;rsquo;re in. In the example manifest above, we&amp;rsquo;re overriding the &lt;em&gt;count&lt;/em&gt; parameter so that we can run 2 coppies of our service in or &lt;em&gt;prod&lt;/em&gt; environment.&lt;/p&gt;
+&lt;h2 id=&#34;deploying-a-service&#34;&gt;Deploying a Service&lt;/h2&gt;
+&lt;p&gt;Once you&amp;rsquo;ve set up your service, you can deploy it (and any changes to your manifest) by running the deploy command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;copilot&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;deploy&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running this command will:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build your image locally&lt;/li&gt;
+&lt;li&gt;Push to your service&amp;rsquo;s ECR repository&lt;/li&gt;
+&lt;li&gt;Convert your manifest file to CloudFormation&lt;/li&gt;
+&lt;li&gt;Package any additional infrastructure into CloudFormation&lt;/li&gt;
+&lt;li&gt;Deploy your updated service and resources to CloudFormation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you have multiple environments, you&amp;rsquo;ll be prompted to select which environment you want to deploy to.&lt;/p&gt;
+&lt;h2 id=&#34;digging-into-your-service&#34;&gt;Digging into your Service&lt;/h2&gt;
+&lt;p&gt;Now that we&amp;rsquo;ve got a service up and running, we can check on it using Copilot. Below are a few common ways to check in on your deployed service.&lt;/p&gt;
+&lt;h3 id=&#34;whats-in-your-service&#34;&gt;What&amp;rsquo;s in your service?&lt;/h3&gt;
+&lt;p&gt;Running &lt;code&gt;copilot svc show&lt;/code&gt; will show you a summary of your service. Here&amp;rsquo;s an example of the output you might see for a load balanced web application. This output includes the configuration of your service for each environment, all the endpoints for your service, and the environment variables passed into your service. You can also provide an optional &lt;code&gt;--resources&lt;/code&gt; flag to see all AWS resources associated with your service.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc show
+About
+
+  Application       my-app
+  Name              front-end
+  Type              Load Balanced Web Service
+
+Configurations
+
+  Environment       Tasks               CPU &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;vCPU&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;          Memory &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;MiB&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;        Port
+  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;              &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;                   0.25                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;512&lt;/span&gt;                 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;
+
+Routes
+
+  Environment       URL
+  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;              http://my-ap-Publi-1RV8QEBNTEQCW-1762184596.ca-central-1.elb.amazonaws.com
+
+Service Discovery
+
+  Environment       Namespace
+  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;              front-end.my-app.local:8080
+
+Variables
+
+  Name                                Environment         Value
+  COPILOT_APPLICATION_NAME            &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;                my-app
+  COPILOT_ENVIRONMENT_NAME            &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;                &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;
+  COPILOT_LB_DNS                      &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;                my-ap-Publi-1RV8QEBNTEQCW-1762184596.ca-central-1.elb.amazonaws.com
+  COPILOT_SERVICE_DISCOVERY_ENDPOINT  &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;                my-app.local
+  COPILOT_SERVICE_NAME                &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt;                front-end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;whats-your-service-status&#34;&gt;What&amp;rsquo;s your service status?&lt;/h3&gt;
+&lt;p&gt;Often it&amp;rsquo;s handy to be able to check on the status of your service. Are all the instances of my service healthy? Are there any alarms firing? To do that, you can run &lt;code&gt;copilot svc status&lt;/code&gt; to get a summary of your service&amp;rsquo;s status.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc status
+Service Status
+
+  ACTIVE &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; / &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; running tasks &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; pending&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+Last Deployment
+
+  Updated At        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt; minutes ago
+  Task Definition   arn:aws:ecs:ca-central-1:693652174720:task-definition/my-app-test-front-end:1
+
+Task Status
+
+  ID                Image Digest        Last Status         Health Status       Started At          Stopped At
+  37236ed3          da3cfcdd            RUNNING             HEALTHY             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt; minutes ago      -
+
+Alarms
+
+  Name              Health              Last Updated        Reason
+  CPU-Utilization   OK                  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; minutes ago       -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;where-are-my-service-logs&#34;&gt;Where are my service logs?&lt;/h3&gt;
+&lt;p&gt;Checking the your service logs is easy as well. Running &lt;code&gt;copilot svc logs&lt;/code&gt; will show the most recent logs of your service. You can follow your logs live with the &lt;code&gt;--follow&lt;/code&gt; flag.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot svc logs
+37236ed 10.0.0.30 🚑 Health-check ok!
+37236ed 10.0.0.30 🚑 Health-check ok!
+37236ed 10.0.0.30 🚑 Health-check ok!
+37236ed 10.0.0.30 🚑 Health-check ok!
+37236ed 10.0.0.30 🚑 Health-check ok!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pipelines</title>
+      <link>efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>efekarakus.github.io/copilot-demo-docs/docs/concepts/pipelines/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Having an automated release process is one of the most important parts of software delivery so Copilot wants to make setting up that automated release process as easy as possible 🚀.&lt;/p&gt;
+&lt;p&gt;In this section, we&amp;rsquo;ll talk about using Copilot to set up a CodePipeline which automatically builds your service code when you push to GitHub, deploys to your environments, and runs automated testing.&lt;/p&gt;
+&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+&lt;p&gt;I won&amp;rsquo;t get too philosophical about releasing software, but what&amp;rsquo;s the point of having a release pipeline? With &lt;code&gt;copilot deploy&lt;/code&gt; you can deploy your service directly from your computer to ECS, why add a middleman? That&amp;rsquo;s a great question. For some apps, manually using &lt;code&gt;deploy&lt;/code&gt; is enough, but as your release process gets more complicated (as you add more environments or add automated testing for example) you want to offload the boring work of repeatably orchestrating that process to a service. Having two services, each having two environments (test and production, say) and wanting to run integration tests after you deploy to your test environment becomes surprisingly cumbersome to do by hand.&lt;/p&gt;
+&lt;p&gt;Using an automated release tool like CodePipeline helps make your release manageable. Even if your release isn&amp;rsquo;t particularly complicated, knowing that you can just &lt;code&gt;git push&lt;/code&gt; to deploy your change always feels a little magical 🌈.&lt;/p&gt;
+&lt;h2 id=&#34;pipeline-structure&#34;&gt;Pipeline structure&lt;/h2&gt;
+&lt;p&gt;Copilot can set up a CodePipeline for you with a few commands - but before we jump into that, let&amp;rsquo;s talk a little bit about the structure of the pipeline we&amp;rsquo;ll be generating. Our pipeline will have the following basic structure:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Source&lt;/strong&gt; - when you push to a configured branch (master by default), a new pipeline execution is triggered.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build Stage&lt;/strong&gt; - after your code is pulled from GitHub, your app&amp;rsquo;s container image is built and published to every environment&amp;rsquo;s ECR repository.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deploy Stages&lt;/strong&gt; - after your code is built, you can deploy to any and all of your environments, with optional post deployment tests or manual approvals.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you&amp;rsquo;ve set up a CodePipeline using Copilot, all you&amp;rsquo;ll have to do is push to your GitHub repository, and CodePipeline will orchestrate the deployments.&lt;/p&gt;
+&lt;p&gt;Want to learn more about CodePipeline? Check out their &lt;a href=&#34;https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome-introducing.html&#34;&gt;getting started docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-pipeline-in-3-steps&#34;&gt;Creating a Pipeline in 3 steps&lt;/h2&gt;
+&lt;p&gt;Creating a Pipeline only requires three steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Preparing the pipeline structure.&lt;/li&gt;
+&lt;li&gt;Committing the generated &lt;code&gt;buildspec.yml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Creating the actual CodePipeline.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Follow the three steps below, from your workspace root:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ copilot pipeline init
+$ git add copilot/buildspec.yml &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Adding Pipeline Buildspec&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git push
+$ copilot pipeline update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;✨ And you&amp;rsquo;ll have a new pipeline configured in your application account. Want to understand a little bit more what&amp;rsquo;s going on? Read on!&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-a-pipeline-step-by-step&#34;&gt;Setting up a Pipeline, step by step&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Step 1: Configuring your Pipeline&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Pipeline configurations are created at a workspace level. If your workspace has a single service then your pipeline will be triggered only for that service. However, if you have multiple services in a workspace then it will build all the services in the workspace. To start setting up a pipeline, &lt;code&gt;cd&lt;/code&gt; into your service(s)&amp;rsquo;s workspace and run:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$ copilot pipeline init&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This won&amp;rsquo;t create your pipeline, but it will create some local files that will be used when creating your pipeline.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Release order&lt;/strong&gt;: You&amp;rsquo;ll be prompted for environments you want to deploy to - select them based on the order you want them to be deployed in your pipeline (deployments happen one environment at a time). You may, for example, want to deploy to your &lt;code&gt;test&lt;/code&gt; environment first, and then your &lt;code&gt;prod&lt;/code&gt; environment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tracking repository&lt;/strong&gt;: After you&amp;rsquo;ve selected the environments you want to deploy to, you&amp;rsquo;ll be prompted to select which GitHub repository you want your CodePipeline to track. This is the repository that, when pushed to, will trigger a Pipeline execution (if the repository you&amp;rsquo;re interested in doesn&amp;rsquo;t show up, you can pass it in using the &lt;code&gt;--github-url&lt;/code&gt; flag).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Personal access token&lt;/strong&gt;: In order to allow CodePipeline to track your GitHub repository, you&amp;rsquo;ll need to provide a GitHub Personal Access Token. You can read how to do that &lt;a href=&#34;https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line&#34;&gt;here&lt;/a&gt;. Your token needs to have &lt;em&gt;repo&lt;/em&gt; and &lt;em&gt;admin:repo_hook&lt;/em&gt; permissions (so CodePipeline can create a WebHook on your behalf). Your GitHub Personal Access Token is stored securely in &lt;a href=&#34;https://aws.amazon.com/secrets-manager/&#34;&gt;AWS Secrets Manager&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Step 2: Updating the Pipeline manifest (optional)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Just like your service has a simple manifest file, so does your pipeline. After you run &lt;code&gt;pipeline init&lt;/code&gt;, two files are created, the &lt;code&gt;pipeline.yml&lt;/code&gt; and &lt;code&gt;buildspec.yml&lt;/code&gt;, both created in your &lt;code&gt;copilot/&lt;/code&gt; directory. If you poke in, you&amp;rsquo;ll see a file that looks something like this (for a service called &amp;ldquo;api-frontend&amp;rdquo; with two environments, &amp;ldquo;test&amp;rdquo; and &amp;ldquo;prod&amp;rdquo;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This YAML file defines the relationship and deployment ordering of your environments.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The name of the pipeline&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;pipeline-ecs-kudos-kohidave-demo-api-frontend&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The version of the schema used in this template&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This section defines the source artifacts.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;source&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The name of the provider that is used to store the source artifacts.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;provider&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;GitHub&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Additional properties that further specifies the exact location&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# the artifacts should be sourced from. For example, the GitHub provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# has the following properties: repository, branch.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;properties&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;access_token_secret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;github-token-ecs-kudos-demo-api-frontend&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;branch&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;master&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repository&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;https&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;//github.com/kohidave/demo-api-frontend&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The deployment section defines the order the pipeline will deploy&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# to your environments.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;stages&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The name of the environment to deploy to.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;test&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The name of the environment to deploy to.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;prod&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There are 3 main parts of this file, the name field, which is the name of your CodePipeline, the source section, which details the GitHub repository and branch to track, and the stages section, which lists the environments you want this pipeline to deploy to. You can update this any time, but you must run &lt;code&gt;copilot pipeline update&lt;/code&gt; afterwards.&lt;/p&gt;
+&lt;p&gt;Typically, you&amp;rsquo;ll update this file if you add new environments you want to deploy to, or want to track a different branch.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 3: Updating the Buildspec (optional)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Along with the &lt;code&gt;pipeline.yml&lt;/code&gt;, the &lt;code&gt;pipeline init&lt;/code&gt; command also generated a &lt;code&gt;buildspec.yml&lt;/code&gt; file in the &lt;code&gt;copilot/&lt;/code&gt; directory. This contains the instructions for building and publishing your service. If you want to run any additional commands, besides &lt;code&gt;docker build&lt;/code&gt;, such as unit tests or style checkers, feel free to add it to the buildspec&amp;rsquo;s &lt;code&gt;build&lt;/code&gt; phase.&lt;/p&gt;
+&lt;p&gt;When this buildspec runs, it pulls down the version of Copilot which was used when you ran &lt;code&gt;pipeline init&lt;/code&gt;, to ensure backwards compatibility.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 4: Creating your Pipeline&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now that your &lt;code&gt;pipeline.yml&lt;/code&gt; and &lt;code&gt;buildspec.yml&lt;/code&gt; are created, check them in and push them to your GitHub repository. The &lt;code&gt;buildspec.yml&lt;/code&gt; is needed for your Pipeline&amp;rsquo;s build stage to run successfully. Once you&amp;rsquo;ve done that, to actually create your pipeline run:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;copilot pipeline update&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This parses your &lt;code&gt;pipeline.yml&lt;/code&gt;, creates a CodePipeline in the same account and region as your project (though it can deploy cross account and cross region) and kicks off a pipeline execution. Log into the AWS Console to watch your Pipeline go.&lt;/p&gt;
+&lt;img src=&#34;https://user-images.githubusercontent.com/828419/71861318-c7083980-30aa-11ea-80bb-4bea25bf5d04.png&#34; class=&#34;img-fluid&#34; alt=&#34;Your completed pipeline&#34;&gt;
+      </description>
+    </item>
     
   </channel>
 </rss>
